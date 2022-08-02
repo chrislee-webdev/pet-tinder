@@ -112,6 +112,19 @@ const resolvers = {
         }
       ).select("-_v -password");
     },
+
+    removePet: async (_, { petId, userId }) => {
+      return await User.findByIdAndUpdate(
+        userId,
+        {
+          $pull: { pets: { _id: petId } },
+        },
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
+    },
   },
 };
 

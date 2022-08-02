@@ -50,7 +50,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): User
     addUser(username: String!, email: String!, password: String!): User
     addPet(input: PetInput!, id: String!): User
-    removePet(petId: String!): User
+    removePet(petId: String!, userId: String!): User
   }
 `;
 
