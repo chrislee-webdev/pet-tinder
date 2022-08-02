@@ -5,7 +5,7 @@ const typeDefs = gql`
     _id: ID
     name: String
     picture: String
-    age: Number
+    age: Int
     breed: String
     gender: String
     coat: String
@@ -18,7 +18,7 @@ const typeDefs = gql`
   input PetInput {
     name: String
     picture: String
-    age: Number
+    age: Int
     breed: String
     gender: String
     coat: String
@@ -32,8 +32,8 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
-    passwword: String
-    petCount: Number
+    password: String
+    petCount: Int
     pets: [Pet]
   }
   type Auth {
