@@ -1,8 +1,9 @@
 import React from "react";
-import Navigation from "./components/navigation";
+import About from "./components/About";
+import Navigation from "./components/Navigation";
+import Footer from "./components/Footer";
 // import logo from "./logo.svg";
 import "./App.css";
-import Main from "./components/main";
 
 function App() {
   return (
@@ -13,8 +14,12 @@ function App() {
       <Navigation></Navigation>
 
       <main>
-        <Main></Main>
+        <About></About>
       </main>
+
+      <footer>
+        <Footer></Footer>
+      </footer>
     </div>
   );
 }
