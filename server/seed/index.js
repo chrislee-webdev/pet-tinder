@@ -7,7 +7,7 @@ connection.once("open", async () => {
   await User.deleteMany({});
 
   // bulk add users and pet data
-  await User.insertMany(userData);
+  await User.create(userData);
 
   console.log(`---- Complete ----`);
   process.exit(0);

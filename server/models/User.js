@@ -42,6 +42,10 @@ userSchema.pre("save", async function (next) {
   next();
 });
 
+userSchema.methods.isPassword = async function (pass) {
+  return bcrypt.compare(pass, this.password);
+};
+
 userSchema.virtual("petCount").get(function () {
   return this.pets.length;
 });
