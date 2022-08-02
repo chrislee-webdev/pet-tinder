@@ -44,11 +44,12 @@ const typeDefs = gql`
     me: User
     user(username: String!): User
     users: [User]
+    pets: [User]
   }
   type Mutation {
     login(email: String!, password: String!): User
     addUser(username: String!, email: String!, password: String!): User
-    addPet(input: PetInput!): User
+    addPet(input: PetInput!, id: String!): User
     removePet(petId: String!): User
   }
 `;
