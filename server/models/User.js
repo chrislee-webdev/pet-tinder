@@ -1,6 +1,8 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
 
+const petSchema = require("./Pet");
+
 const userSchema = new Schema(
   {
     username: {
@@ -21,7 +23,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    pets: [String],
+    pets: [petSchema],
   },
 
   {
