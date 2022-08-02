@@ -1,0 +1,92 @@
+[
+  {
+    "username": "user1",
+    "email": "user1@email.com",
+    "password": "password",
+    "pets": {
+      "name": "Bob",
+      "picture": "https://placedog.net/500",
+      "age": "1",
+      "breed": "husky",
+      "gender": "male",
+      "coat": "short",
+      "color": "brown",
+      "temperment": "chill",
+      "funFact": "",
+      "disabilities": "",
+      "allergies": ""
+    }
+  },
+  {
+    "username": "user2",
+    "email": "user2@email.com",
+    "password": "password",
+    "pets": {
+      "name": "Billy",
+      "picture": "https://placedog.net/500",
+      "age": "2",
+      "breed": "lab",
+      "gender": "female",
+      "coat": "short",
+      "color": "yellow",
+      "temperment": "excited",
+      "funFact": "",
+      "disabilities": "",
+      "allergies": ""
+    }
+  },
+  {
+    "username": "user3",
+    "email": "user3@email.com",
+    "password": "password",
+    "pets": {
+      "name": "Ben",
+      "picture": "https://placedog.net/500",
+      "age": "3",
+      "breed": "eskimo",
+      "gender": "male",
+      "coat": "medium",
+      "color": "white",
+      "temperment": "stupid",
+      "funFact": "",
+      "disabilities": "",
+      "allergies": ""
+    }
+  },
+  {
+    "username": "user4",
+    "email": "user4@email.com",
+    "password": "password",
+    "pets": {
+      "name": "Benedict",
+      "picture": "https://placedog.net/500",
+      "age": "4",
+      "breed": "pitbull",
+      "gender": "female",
+      "coat": "short",
+      "color": "black",
+      "temperment": "excited",
+      "funFact": "",
+      "disabilities": "Missing One leg",
+      "allergies": ""
+    }
+  },
+  {
+    "username": "user5",
+    "email": "user5@email.com",
+    "password": "password",
+    "pets": {
+      "name": "Brendan",
+      "picture": "https://placedog.net/500",
+      "age": "5",
+      "breed": "lab",
+      "gender": "male",
+      "coat": "short",
+      "color": "black",
+      "temperment": "chill",
+      "funFact": "likes beer",
+      "disabilities": "",
+      "allergies": "lots of dander"
+    }
+  }
+]

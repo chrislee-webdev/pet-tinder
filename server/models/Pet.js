@@ -38,15 +38,12 @@ const petSchema = new Schema({
   },
   funFact: {
     type: String,
-    required: true,
   },
   disabilities: {
     type: String,
-    required: true,
   },
   allergies: {
     type: String,
-    required: true,
   },
 });
 
