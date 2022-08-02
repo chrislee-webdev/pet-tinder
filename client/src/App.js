@@ -1,7 +1,8 @@
 import React from "react";
 import Navigation from "./components/navigation";
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
+import Main from "./components/main";
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
       <Navigation></Navigation>
 
       <main>
-        
+        <Main></Main>
       </main>
     </div>
   );
