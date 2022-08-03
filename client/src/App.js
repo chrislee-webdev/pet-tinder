@@ -4,6 +4,7 @@ import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 // import logo from "./logo.svg";
 import "./App.css";
+import AddPet from "./components/AddPet";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Navigation></Navigation>
 
       <main>
+        <AddPet></AddPet>
         <About></About>
       </main>
 
