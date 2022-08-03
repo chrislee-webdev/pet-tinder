@@ -23,7 +23,7 @@ function API() {
       {pets.map((pet) => (
         <li key={pet._id}>
           <h3>{pet.name}</h3>
-          <img src={pet.picture} />
+          <img src={pet.picture} alt={`picture of dog named ${pet.name}`} />
           <p>Age: {pet.age}</p>
           <p>{pet.gender}</p>
           <p>{pet.breed}</p>
