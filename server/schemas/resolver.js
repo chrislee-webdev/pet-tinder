@@ -1,5 +1,6 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { User } = require("../models");
+const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
@@ -79,11 +80,12 @@ const resolvers = {
         email: email,
         password: password,
       });
+      const token = signToken(newUser);
       if (!newUser) {
         return `User creation failed`;
       }
 
-      return newUser;
+      return { token, newUser };
     },
 
     // takes pet obj:
@@ -99,32 +101,37 @@ const resolvers = {
     //    picture: url,
     //    temperment
     // returns new user's pet data
-    addPet: async (_, { input, id }) => {
-      const user = await User.findByIdAndUpdate(
-        id,
-        {
-          $push: { pets: input },
-        },
-        {
-          new: true,
-          runValidators: true,
-        }
-      ).select("-_v -password");
-      return user.pets[user.pets.length - 1];
+    addPet: async (_, { input }, ctx) => {
+      if (ctx.user) {
+        const user = await User.findByIdAndUpdate(
+          ctx.user._id,
+          {
+            $push: { pets: input },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        ).select("-_v -password");
+        return user.pets[user.pets.length - 1];
+      }
+      throw new AuthenticationError(`Not Logged In`);
     },
 
     // takes petId and returns the user's data
-    removePet: async (_, { petId, userId }) => {
-      return await User.findByIdAndUpdate(
-        userId,
-        {
-          $pull: { pets: { _id: petId } },
-        },
-        {
-          new: true,
-          runValidators: true,
-        }
-      );
+    removePet: async (_, { petId }, ctx) => {
+      if (ctx.user) {
+        return await User.findByIdAndUpdate(
+          ctx.user._id,
+          {
+            $pull: { pets: { _id: petId } },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+      }
     },
 
     // returns user data
@@ -143,7 +150,8 @@ const resolvers = {
         throw new AuthenticationError(`Incorrect username or password`);
       }
 
-      return user;
+      const token = signToken(user);
+      return { token, user };
     },
   },
 };
