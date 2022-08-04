@@ -11,7 +11,7 @@ import React from 'react';
 
 //pets like you
 const futureMatch = {
-    
+
 };
 
 
@@ -27,14 +27,14 @@ function LikedPets () {
     return (
         <section>
             <h2>Likes You!</h2>
-            <p>
-                <Select options={ futureMatch } />
-            </p>
+            <div>
+                { futureMatch } 
+            </div>
 
             <h2>Pets You Like</h2>
-            <p> 
-                <Select options={ Matched }/>
-            </p>
+            <div> 
+                { Matched }
+            </div>
         </section>
     )
 }
