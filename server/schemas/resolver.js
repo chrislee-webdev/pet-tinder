@@ -73,12 +73,12 @@ const resolvers = {
       if (ctx.user) {
         const user = await User.findById(ctx.user._id); // find user data
 
-        // get all pets
-        const users = await User.find();
-        const pets = users.map((user) => user.pets).flat();
-
-        const likesMe = pets.filter((pet) => pet.likes.includes(petId));
-        console.log(likesMe);
+        const { likes, likesMe } = user.pets.find((pet) => pet.id === petId);
+        const match = likes.filter((like) => likesMe.includes(like));
+        const matchedPets = await User.find({
+          pets: { $elemMatch: { _id: { $in: match } } },
+        });
+        return matchedPets;
       }
     },
   },
@@ -111,6 +111,53 @@ const resolvers = {
           },
           {
             arrayFilters: [{ "elem._id": petId }],
+            new: true,
+            runValidators: true,
+          }
+        ).select("-_v -password");
+
+        const likedPet = await User.findOneAndUpdate(
+          {
+            pets: { $elemMatch: { id: likedId } },
+          },
+          {
+            $addToSet: { "pets.$[elem].likesMe": petId },
+          },
+          {
+            arrayFilters: [{ "elem._id": likedId }],
+            new: true,
+            runValidators: true,
+          }
+        ).select("-_v -password");
+
+        return user.pets.find((pet) => pet.id === petId);
+      }
+      throw new AuthenticationError(`Not Logged In`);
+    },
+
+    unlikePet: async (_, { petId, likedId }, ctx) => {
+      if (ctx.user) {
+        const user = await User.findByIdAndUpdate(
+          ctx.user._id,
+          {
+            $pull: { "pets.$[elem].likes": likedId },
+          },
+          {
+            arrayFilters: [{ "elem._id": petId }],
+            new: true,
+            runValidators: true,
+          }
+        ).select("-_v -password");
+
+        const likedPet = await User.findOneAndUpdate(
+          {
+            pets: { $elemMatch: { id: likedId } },
+          },
+          {
+            $pull: { "pets.$[elem].likesMe": petId },
+          },
+          {
+            arrayFilters: [{ "elem._id": likedId }],
             new: true,
             runValidators: true,
           }

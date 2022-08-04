@@ -50,6 +50,10 @@ const petSchema = new Schema({
     ref: "User",
     default: [],
   },
+  likesMe: {
+    type: [Schema.Types.ObjectId],
+    default: [],
+  },
 });
 
 module.exports = { petSchema };
