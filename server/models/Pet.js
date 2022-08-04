@@ -1,4 +1,4 @@
-const { Schema } = require("mongoose");
+const { Schema, model, Types } = require("mongoose");
 
 const petSchema = new Schema({
   name: {
@@ -45,6 +45,11 @@ const petSchema = new Schema({
   allergies: {
     type: String,
   },
+  likes: {
+    type: [Schema.Types.ObjectId],
+    ref: "User",
+    default: [],
+  },
 });
 
-module.exports = petSchema;
+module.exports = { petSchema };

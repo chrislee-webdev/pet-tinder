@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User } = require("../models");
+const { User, Pet } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -69,6 +69,18 @@ const resolvers = {
       const pets = users.map((user) => user.pets);
       return pets.flat();
     },
+    findMatch: async (_, { petId }, ctx) => {
+      if (ctx.user) {
+        const user = await User.findById(ctx.user._id); // find user data
+
+        // get all pets
+        const users = await User.find();
+        const pets = users.map((user) => user.pets).flat();
+
+        const likesMe = pets.filter((pet) => pet.likes.includes(petId));
+        console.log(likesMe);
+      }
+    },
   },
 
   Mutation: {
@@ -86,6 +98,27 @@ const resolvers = {
       }
 
       return { token, newUser };
+    },
+
+    // takes the pet _id of liked pet
+    // returns array of liked pets
+    likePet: async (_, { petId, likedId }, ctx) => {
+      if (ctx.user) {
+        const user = await User.findByIdAndUpdate(
+          ctx.user._id,
+          {
+            $addToSet: { "pets.$[elem].likes": likedId },
+          },
+          {
+            arrayFilters: [{ "elem._id": petId }],
+            new: true,
+            runValidators: true,
+          }
+        ).select("-_v -password");
+
+        return user.pets.find((pet) => pet.id === petId);
+      }
+      throw new AuthenticationError(`Not Logged In`);
     },
 
     // takes pet obj:
