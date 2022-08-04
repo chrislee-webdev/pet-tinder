@@ -47,10 +47,10 @@ const typeDefs = gql`
     pets: [Pet]
   }
   type Mutation {
-    login(email: String!, password: String!): User
-    addUser(username: String!, email: String!, password: String!): User
-    addPet(input: PetInput!, id: String!): Pet
-    removePet(petId: String!, userId: String!): User
+    login(email: String!, password: String!): Auth
+    addUser(username: String!, email: String!, password: String!): Auth
+    addPet(input: PetInput!): Pet
+    removePet(petId: String!): User
   }
 `;
 
