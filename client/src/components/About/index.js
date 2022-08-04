@@ -8,7 +8,7 @@ function About() {
 
             {/* title and decription of pet tinder */}
             <p>
-                Pet Tinder!
+                Pinder: Puppy Love!
             </p>
         </section>  
     )
