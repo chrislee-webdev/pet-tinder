@@ -35,21 +35,21 @@ function AddPet() {
     <section>
       <h2>Create a pet profile</h2>
 
-      <p>
+      <div>
         Breed: <Select options={Breed} />
-      </p>
+      </div>
 
-      <p>
+      <div>
         Gender: <Select options={Gender} />
-      </p>
+      </div>
 
-      <p>
+      <div>
         Age: <Select options={Age} />
-      </p>
+      </div>
 
-      <p>
+      <div>
         Temperament: <Select options={Temper} />
-      </p>
+      </div>
     </section>
   );
 }
