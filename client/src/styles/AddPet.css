@@ -1,5 +1,7 @@
 .addPetContainer{
-    width:500px;
+  width:500px;
   padding:100px;
+  background-color: rgb(242, 238, 233);
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  align-items: center;
 }

@@ -1,0 +1,14 @@
+.findPetContainer{
+   
+    text-align:center;
+    background-color: rgb(242, 238, 233);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.findText{
+
+    font-size: 20px;
+    text-align: center;
+}
