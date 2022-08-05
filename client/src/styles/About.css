@@ -1,4 +1,13 @@
 .AboutContainer{
-    color: red;
+ background-color: rgb(241, 232, 219);
+ text-align:center;
+ font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+ font-size:30px;
 }
+.pinderText{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding-bottom: 30px;
+    text-shadow: .5px .5px red;
+}
+
 
