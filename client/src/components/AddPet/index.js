@@ -34,7 +34,7 @@ const Breed = [
 function AddPet() {
   return (
     <section className='addPetContainer'>
-      <h2>Create a pet profile</h2>
+      <h1>Create a pet profile</h1>
 
       <p>
         Breed: <Select options={Breed} />
