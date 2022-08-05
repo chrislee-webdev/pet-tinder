@@ -63,12 +63,50 @@ export const REMOVE_PET = gql`
 `;
 
 export const LOGIN_USER = gql`
-  mutation Login($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
-      token
-      user {
+  mutation login($email: String!, $password: String!) {
+    login(email: $String, password: $String) {
+      token: user {
         _id
+        username
+        email
+        password
       }
     }
   }
+`;
+
+export const LIKE_PET = gql`
+mutation likePet($petId: String!, $likedId: String!) {
+    likePet(petIdL $String, likedId: $String) {
+        Pet {
+            _id
+            name
+            picture
+            age
+            breed
+            gender
+            temperment
+            likes
+            likesMe
+        }
+    }
+}
+`;
+
+export const UNLIKE_PET = gql`
+mutation unlikePet($petId: String!, $likedId: String!) {
+    unlikePet(petIdL $String, likedId: $String) {
+        Pet {
+            _id
+            name
+            picture
+            age
+            breed
+            gender
+            temperment
+            likes
+            likesMe
+        }
+    }
+}
 `;
