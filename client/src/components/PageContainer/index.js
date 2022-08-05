@@ -21,6 +21,9 @@ export default function PortfolioContainer() {
     if (currentPage === "FindPetPal") {
       return <FindPetPal />;
     }
+    if (currentPage === "Login") {
+      return <LoginPage />;
+    }
   };
 
   const handlePageChange = (page) => setCurrentPage(page);
@@ -31,7 +34,6 @@ export default function PortfolioContainer() {
         currentPage={currentPage}
         handlePageChange={handlePageChange}
       />
-      <LoginPage />
       {renderPage()}
       <footer>
         <Footer></Footer>
