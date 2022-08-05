@@ -11,14 +11,14 @@ import React from 'react';
 
 //pets like you
 const futureMatch = {
-
+ //TODO: access userData to find likes 
 };
 
 
 
 //pets you like 
 const Matched = {
-    
+    //TODO: access userData to find matches
 };
  
 
@@ -38,3 +38,5 @@ function LikedPets () {
         </section>
     )
 }
+
+export default LikedPets

@@ -32,7 +32,7 @@ function FindPetPal() {
             <div className='cardContainer'>
         {pets.map((character) =>
           <TinderCard className='swipe' key={pets.name} onSwipe={(dir) => swipe(dir, pets.name)} onCardLeftScreen={() => outOfFrame(pets.name)}>
-            <div style={{ backgroundImage: 'url(' + character.url + ')' }} className='card'>
+            <div style={{ picture: 'url(' + character.url + ')' }} className='card'>
               <h3>{pets.name}</h3>
             </div>
           </TinderCard>
