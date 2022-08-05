@@ -12,9 +12,9 @@ function Navigation({ currentPage, handlePageChange }) {
             <nav>
                 <ul>
                     <li className="mx-2">
-                        <a onClick={() => handlePageChange('About')}
+                        <span onClick={() => handlePageChange('About')}
                         className={currentPage === 'About' ? 'nav-link active' : 'nav-link'}
-                        >Homepage</a>
+                        >Homepage</span>
                     </li> 
 
                     <li className="mx-2">
