@@ -39,7 +39,7 @@ export const ADD_PET = gql`
 
 export const REMOVE_PET = gql`
   mutation removePet($petId: String!) {
-    removePet(petId: $String) {
+    removePet(petId: $petId) {
       user {
         _id
         usrname
@@ -64,7 +64,7 @@ export const REMOVE_PET = gql`
 
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
-    login(email: $String, password: $String) {
+    login(email: $email, password: $password) {
       token: user {
         _id
         username
@@ -76,37 +76,37 @@ export const LOGIN_USER = gql`
 `;
 
 export const LIKE_PET = gql`
-mutation likePet($petId: String!, $likedId: String!) {
-    likePet(petIdL $String, likedId: $String) {
-        Pet {
-            _id
-            name
-            picture
-            age
-            breed
-            gender
-            temperment
-            likes
-            likesMe
-        }
+  mutation likePet($petId: String!, $likedId: String!) {
+    likePet(petId: $petId, likedId: $likedId) {
+      Pet {
+        _id
+        name
+        picture
+        age
+        breed
+        gender
+        temperment
+        likes
+        likesMe
+      }
     }
-}
+  }
 `;
 
 export const UNLIKE_PET = gql`
-mutation unlikePet($petId: String!, $likedId: String!) {
-    unlikePet(petIdL $String, likedId: $String) {
-        Pet {
-            _id
-            name
-            picture
-            age
-            breed
-            gender
-            temperment
-            likes
-            likesMe
-        }
+  mutation unlikePet($petId: String!, $likedId: String!) {
+    unlikePet(petId: $petId, likedId: $likedId) {
+      Pet {
+        _id
+        name
+        picture
+        age
+        breed
+        gender
+        temperment
+        likes
+        likesMe
+      }
     }
-}
+  }
 `;
