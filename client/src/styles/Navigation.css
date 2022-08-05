@@ -3,10 +3,14 @@
     text-align:center;
     background-image: linear-gradient(to right, rgb(216, 3, 3),rgb(238, 120, 16),rgb(235, 192, 21));
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
 
 }
 
-
+.btnContainer{
+    
+}
 
 .aboutBtn {
     width: 15%;
@@ -14,19 +18,47 @@
     position:relative;
     background-color:#070808;
     border-radius: 25%;
-    box-shadow: 2px 2px 2px #888888;
+    box-shadow: 2px 2px 2px #c90909;
     color:white;
+    margin-right: 5%;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
  .aboutBtn:hover {
-    background-color:#f1af97;
+    background-color:#f0d19a;
     color:black;
 }
-/* .aboutBtn span {
-    width:100%;
+.addPetBtn {
+    width: 15%;
     display:inline-block;
-    position:absolute;
-    border-radius: 30%;
-    box-shadow: 2px 2px 2px #888888; */
-    
-/* } */
+    position:relative;
+    background-color:#070808;
+    border-radius: 25%;
+    box-shadow: 2px 2px 2px #c90909;
+    color:white;
+    margin-right:5%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+ .addPetBtn:hover {
+    background-color:#f0d19a;
+    color:black;
+}
+
+.findPetPalBtn {
+    width: 15%;
+    display:inline-block;
+    position:relative;
+    background-color:#070808;
+    border-radius: 25%;
+    box-shadow: 2px 2px 2px #c90909;
+    color:white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+ .findPetPalBtn:hover {
+    background-color:#f0d19a;
+    color:black;
+}
+
 
