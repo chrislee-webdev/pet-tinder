@@ -33,7 +33,6 @@ export default function PortfolioContainer() {
       />
       <LoginPage />
       {renderPage()}
-      {auth.loggedIn() && <LikedPets />}
       <footer>
         <Footer></Footer>
       </footer>
