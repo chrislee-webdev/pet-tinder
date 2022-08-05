@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_USER, LOGIN_USER } from "../../utils/mutations";
 import auth from "../../utils/auth";
@@ -17,73 +17,74 @@ export default function LoginPage() {
     email: "",
     password: "",
   });
-  const [usernameValid, setUsername] = useState(false);
-  const [emailValid, setEmail] = useState(false);
-  const [passValid, setPass] = useState(false);
-  const [showLoginAlert, setLoginAlert] = useState(false);
-  const [showSignupAlert, setSignupAlert] = useState(false);
-  const [alertMsg, setMsg] = useState(
-    "Must have valid username/email/password"
-  );
+  const [loginErrMsg, setLoginErrMsg] = useState(``);
+  const [signupErrMsg, setSignupErrMsg] = useState(``);
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setForm({ ...formData, [name]: value });
+  const usernameVal = (username) => {
+    const regex = /^[a-zA-Z0-9]{2,12}$/i;
+    const val = regex.test(username);
+    val
+      ? setSignupErrMsg(``)
+      : setSignupErrMsg(`Must enter Alphanumeric username`);
+    return val;
   };
-  const validate = (e) => {
-    e.preventDefault();
-    const { name, value } = e.currentTarget;
-    if (value === "") {
-      e.currentTarget.placeholder = `Must have ${e.target.name}`;
-      return;
+
+  const emailVal = (email, form) => {
+    const regex = /[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}/gim;
+    const val = regex.test(email);
+    if (form === "login") {
+      val ? setLoginErrMsg(``) : setLoginErrMsg(`Must enter a valid email`);
     }
-
-    const valTest = {
-      username: /^[a-zA-Z0-9]{6,20}$/i,
-      email: /[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}/gim,
-      password:
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&_])[A-Za-z\d$@$!%*?&_]{6,20}$/,
-    };
-
-    switch (name) {
-      case "email":
-        valTest.email.test(value)
-          ? setEmail(true)
-          : setMsg(`Must have valid ${name}`);
-        if (!emailValid) {
-          setLoginAlert(true);
-        }
-        break;
-
-      case "username":
-        console.log(value);
-        valTest.username.test(value)
-          ? setUsername(true)
-          : setMsg(`Must have valid ${name}`);
-        if (!usernameValid) {
-          setSignupAlert(true);
-        }
-        break;
-
-      case "password":
-        valTest.password.test(value)
-          ? setPass(true)
-          : setMsg(`Must have valid ${name}`);
-        if (!passValid) {
-          setLoginAlert(true);
-        }
-        break;
+    if (form === "signup") {
+      val ? setSignupErrMsg(``) : setSignupErrMsg(`Must enter a valid email`);
     }
+    return val;
   };
+
+  const passwordVal = (password, form) => {
+    const regex =
+      /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&_])[A-Za-z\d$@$!%*?&_]{6,}/;
+    const val = regex.test(password);
+    if (form === "login") {
+      val
+        ? setLoginErrMsg(``)
+        : setLoginErrMsg(`Password must 
+      be 6+ characters long and feature at least 1 upper and 
+      lowercase letter, 1 number, and a special character`);
+    }
+    if (form === "signup") {
+      val
+        ? setSignupErrMsg(``)
+        : setSignupErrMsg(`Password must 
+      be 6+ characters long and feature at least 1 upper and 
+      lowercase letter, 1 number, and a special character`);
+    }
+    return val;
+  };
+
+  const passConf = (pass) => {
+    const val = formData.password === pass ? true : false;
+    val
+      ? setSignupErrMsg(``)
+      : setSignupErrMsg(`Password Does Not Match Confirmation`);
+    return val;
+  };
+
+  const handleInputChange = (input, name) => {
+    setForm({
+      ...formData,
+      [name]: input,
+    });
+  };
+  useEffect(() => {
+    console.dir(formData);
+  }, [formData]);
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
-
-    if (emailValid === false || passValid === false) {
-      return setLoginAlert(true);
+    if (!usernameVal || !emailVal || !passwordVal || !passConf) {
+      return setLoginErrMsg(`Please Complete Form With Valid Responses`);
     }
-
-    setLoginAlert(false);
 
     try {
       const {
@@ -95,9 +96,7 @@ export default function LoginPage() {
       if (loggingIn) {
         return <h1>"Loading..."</h1>;
       }
-      if (loginError) {
-        return console.log(loginError);
-      }
+
       if (user) {
         alert(`Logged in`);
       }
@@ -110,21 +109,21 @@ export default function LoginPage() {
 
   const handleSignupSubmit = async (e) => {
     e.preventDefault();
-
-    if (
-      usernameValid === false ||
-      emailValid === false ||
-      passValid === false
-    ) {
-      return setSignupAlert(true);
+    if (!usernameVal || !emailVal || !passwordVal || !passConf) {
+      return setSignupErrMsg(`Please Complete Form With Valid Responses`);
     }
-
-    setSignupAlert(false);
+    if (
+      formData.username === "" ||
+      formData.email === "" ||
+      formData.password === ""
+    ) {
+      return setSignupErrMsg(`Please Complete Form With Valid Responses`);
+    }
 
     try {
       const {
         data: {
-          login: { token, user },
+          addUser: { token, user },
         },
       } = await submitSignup({ variables: { ...formData } });
 
@@ -150,18 +149,18 @@ export default function LoginPage() {
         <input
           placeholder="Email"
           name="email"
-          onChange={handleInputChange}
-          onBlur={validate}
+          onBlur={(e) => emailVal(e.target.value, "login")}
+          onChange={(e) => handleInputChange(e.target.value, e.target.name)}
         />
         <input
           placeholder="Password"
           type={"password"}
           name="password"
-          onChange={handleInputChange}
-          onBlur={validate}
+          onBlur={(e) => passwordVal(e.target.value, "login")}
+          onChange={(e) => handleInputChange(e.target.value, e.target.name)}
         />
         <input type={"submit"} value="Submit" />
-        {showLoginAlert && <h3 style={{ color: "red" }}>{alertMsg}</h3>}
+        <h3 style={{ color: "red" }}>{loginErrMsg}</h3>
       </form>
 
       <h2>Sign Up</h2>
@@ -169,37 +168,31 @@ export default function LoginPage() {
         <input
           placeholder="Username"
           name="username"
-          value={formData.username}
-          onChange={handleInputChange}
-          onBlur={validate}
+          onBlur={(e) => usernameVal(e.target.value)}
+          onChange={(e) => handleInputChange(e.target.value, e.target.name)}
         />
         <input
           placeholder="Email"
+          type={"email"}
           name="email"
-          value={formData.email}
-          onChange={handleInputChange}
-          onBlur={validate}
+          onBlur={(e) => emailVal(e.target.value, "signup")}
+          onChange={(e) => handleInputChange(e.target.value, e.target.name)}
         />
         <input
           placeholder="Password"
           type={"password"}
           name="password"
-          value={formData.password}
-          onChange={handleInputChange}
-          onBlur={validate}
+          onBlur={(e) => passwordVal(e.target.value, "signup")}
+          onChange={(e) => handleInputChange(e.target.value, e.target.name)}
         />
         <input
           placeholder="Confirm Password"
           type={"password"}
           name="confirm password"
-          onBlur={validate}
+          onBlur={(e) => passConf(e.target.value)}
         />
         <input type={"submit"} value="Submit" />
-        {showSignupAlert && (
-          <h3 style={{ color: "red" }}>
-            Please enter a valid Username/Email/Password
-          </h3>
-        )}
+        <h3 style={{ color: "red" }}>{signupErrMsg}</h3>
       </form>
     </>
   );

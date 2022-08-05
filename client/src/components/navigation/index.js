@@ -2,6 +2,7 @@
 
 // import React
 import React from "react";
+import auth from "../../utils/auth";
 
 // Navigation function
 function Navigation({ currentPage, handlePageChange }) {
@@ -12,14 +13,25 @@ function Navigation({ currentPage, handlePageChange }) {
       <nav>
         <ul>
           <li className="mx-2">
-            <a
-              onClick={() => handlePageChange("Login")}
-              className={
-                currentPage === "Login" ? "nav-link active" : "nav-link"
-              }
-            >
-              Login/Signup
-            </a>
+            {auth.loggedIn() ? (
+              <a
+                onClick={() => auth.logout()}
+                className={
+                  currentPage === "Logout" ? "nav-link active" : "nav-link"
+                }
+              >
+                Logout
+              </a>
+            ) : (
+              <a
+                onClick={() => handlePageChange("Login")}
+                className={
+                  currentPage === "Login" ? "nav-link active" : "nav-link"
+                }
+              >
+                Login/Signup
+              </a>
+            )}{" "}
           </li>
 
           <li className="mx-2">
