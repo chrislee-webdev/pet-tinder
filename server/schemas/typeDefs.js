@@ -47,6 +47,7 @@ const typeDefs = gql`
     user(username: String!): User
     users: [User]
     pets: [Pet]
+    pet(petId: [String]!): [Pet]
     findMatch(petId: String!): [User]
   }
   type Mutation {

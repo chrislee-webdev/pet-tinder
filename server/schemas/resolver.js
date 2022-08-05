@@ -4,6 +4,12 @@ const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
+    me: async (_, args, ctx) => {
+      if (ctx.user) {
+        return User.findById(ctx.user._id);
+      }
+    },
+
     // takes either a username or an email
     // returns single user obj
     // data: {
@@ -69,6 +75,17 @@ const resolvers = {
       const pets = users.map((user) => user.pets);
       return pets.flat();
     },
+
+    pet: async (_, { petId }, ctx) => {
+      if (ctx.user) {
+        const users = await User.find({
+          pets: { $elemMatch: { _id: { $in: petId } } },
+        }).select("-_v -password");
+
+        return users.map((user) => user.pets).flat();
+      }
+    },
+
     findMatch: async (_, { petId }, ctx) => {
       if (ctx.user) {
         const user = await User.findById(ctx.user._id); // find user data
