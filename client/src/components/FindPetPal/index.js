@@ -3,7 +3,8 @@
 // import React
 import React, { useState } from "react";
 import TinderCard from 'react-tinder-card';
-import userData from '../../../../server/seed/userData.json'
+//import userData from '../../../../server/seed/userData.json'
+import { useQuery, useMutation } from "@apollo/client";
 
 //TODO: get user data 
  const db = userData

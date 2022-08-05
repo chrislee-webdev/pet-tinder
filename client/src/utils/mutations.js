@@ -71,3 +71,39 @@ mutation login($email: String!, $password: String!) {
     }
 }
 `;
+
+export const LIKE_PET = gql`
+mutation likePet($petId: String!, $likedId: String!) {
+    likePet(petIdL $String, likedId: $String) {
+        Pet {
+            _id
+            name
+            picture
+            age
+            breed
+            gender
+            temperment
+            likes
+            likesMe
+        }
+    }
+}
+`;
+
+export const UNLIKE_PET = gql`
+mutation unlikePet($petId: String!, $likedId: String!) {
+    unlikePet(petIdL $String, likedId: $String) {
+        Pet {
+            _id
+            name
+            picture
+            age
+            breed
+            gender
+            temperment
+            likes
+            likesMe
+        }
+    }
+}
+`;
