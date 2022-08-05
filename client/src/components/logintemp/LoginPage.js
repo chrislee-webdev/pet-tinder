@@ -39,7 +39,7 @@ export default function LoginPage() {
     }
 
     const valTest = {
-      username: /^[a-z0-9]{6,6}$/i,
+      username: /^[a-zA-Z0-9]{6,20}$/i,
       email: /[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}/gim,
       password:
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&_])[A-Za-z\d$@$!%*?&_]{6,20}$/,
@@ -56,11 +56,12 @@ export default function LoginPage() {
         break;
 
       case "username":
+        console.log(value);
         valTest.username.test(value)
           ? setUsername(true)
           : setMsg(`Must have valid ${name}`);
-        if (!emailValid) {
-          setLoginAlert(true);
+        if (!usernameValid) {
+          setSignupAlert(true);
         }
         break;
 
@@ -68,7 +69,7 @@ export default function LoginPage() {
         valTest.password.test(value)
           ? setPass(true)
           : setMsg(`Must have valid ${name}`);
-        if (!emailValid) {
+        if (!passValid) {
           setLoginAlert(true);
         }
         break;
@@ -119,6 +120,28 @@ export default function LoginPage() {
     }
 
     setSignupAlert(false);
+
+    try {
+      const {
+        data: {
+          login: { token, user },
+        },
+      } = await submitSignup({ variables: { ...formData } });
+
+      if (creatingUser) {
+        return <h1>"Loading..."</h1>;
+      }
+      if (signupError) {
+        return console.log(loginError);
+      }
+      if (user) {
+        alert(`Logged in`);
+      }
+
+      auth.login(token);
+    } catch (err) {
+      console.error(err);
+    }
   };
   return (
     <>
