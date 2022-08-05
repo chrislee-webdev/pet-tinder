@@ -1,5 +1,6 @@
 import React from "react";
 import Select from "react-select";
+import '../../styles/AddPet.css'
 
 const Age = [
   { label: "0 - 1", value: 1 },
@@ -32,7 +33,7 @@ const Breed = [
 
 function AddPet() {
   return (
-    <section>
+    <section className='addPetContainer'>
       <h2>Create a pet profile</h2>
 
       <p>
