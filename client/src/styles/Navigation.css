@@ -1,0 +1,32 @@
+.header{
+    padding:30px;
+    text-align:center;
+    background-image: linear-gradient(to right, rgb(216, 3, 3),rgb(238, 120, 16),rgb(235, 192, 21));
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+
+
+.aboutBtn {
+    width: 15%;
+    display:inline-block;
+    position:relative;
+    background-color:#070808;
+    border-radius: 25%;
+    box-shadow: 2px 2px 2px #888888;
+    color:white;
+}
+ .aboutBtn:hover {
+    background-color:#f1af97;
+    color:black;
+}
+/* .aboutBtn span {
+    width:100%;
+    display:inline-block;
+    position:absolute;
+    border-radius: 30%;
+    box-shadow: 2px 2px 2px #888888; */
+    
+/* } */
+

@@ -2,16 +2,17 @@
 
 // import React
 import React from "react";
+import '../../styles/Navigation.css';
 
 // Navigation function
 function Navigation({ currentPage, handlePageChange }) {
     return (
-        <header>
+        <header className='header'>
             <h1>Pet Tinder</h1>
 
             <nav>
                 <ul>
-                    <li className="mx-2">
+                    <li className="mx-2 aboutBtn ">
                         <a onClick={() => handlePageChange('About')}
                         className={currentPage === 'About' ? 'nav-link active' : 'nav-link'}
                         >Homepage</a>
