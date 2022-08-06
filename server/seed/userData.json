@@ -2,16 +2,16 @@
   {
     "username": "user1",
     "email": "user1@email.com",
-    "password": "password",
+    "password": "Password1!",
     "pets": {
       "name": "Bob",
       "picture": "https://placedog.net/500",
       "age": "1",
-      "breed": "husky",
+      "breed": "shiba inu",
       "gender": "male",
       "coat": "short",
       "color": "brown",
-      "temperment": "chill",
+      "temperment": "eager to please",
       "funFact": "",
       "disabilities": "",
       "allergies": ""
@@ -20,16 +20,16 @@
   {
     "username": "user2",
     "email": "user2@email.com",
-    "password": "password",
+    "password": "Password2@",
     "pets": {
       "name": "Billy",
       "picture": "https://placedog.net/500",
       "age": "2",
-      "breed": "lab",
+      "breed": "golden retriever",
       "gender": "female",
       "coat": "short",
       "color": "yellow",
-      "temperment": "excited",
+      "temperment": "friendly",
       "funFact": "",
       "disabilities": "",
       "allergies": ""
@@ -38,16 +38,16 @@
   {
     "username": "user3",
     "email": "user3@email.com",
-    "password": "password",
+    "password": "Password3#",
     "pets": {
       "name": "Ben",
       "picture": "https://placedog.net/500",
       "age": "3",
-      "breed": "eskimo",
+      "breed": "poodle",
       "gender": "male",
       "coat": "medium",
       "color": "white",
-      "temperment": "stupid",
+      "temperment": "stubborn",
       "funFact": "",
       "disabilities": "",
       "allergies": ""
@@ -56,16 +56,16 @@
   {
     "username": "user4",
     "email": "user4@email.com",
-    "password": "password",
+    "password": "Password4$",
     "pets": {
       "name": "Benedict",
       "picture": "https://placedog.net/500",
       "age": "4",
-      "breed": "pitbull",
+      "breed": "french bulldog",
       "gender": "female",
       "coat": "short",
       "color": "black",
-      "temperment": "excited",
+      "temperment": "excellent family dog",
       "funFact": "",
       "disabilities": "Missing One leg",
       "allergies": ""
@@ -74,16 +74,16 @@
   {
     "username": "user5",
     "email": "user5@email.com",
-    "password": "password",
+    "password": "Password5%",
     "pets": {
       "name": "Brendan",
       "picture": "https://placedog.net/500",
       "age": "5",
-      "breed": "lab",
+      "breed": "samoyed",
       "gender": "male",
-      "coat": "short",
-      "color": "black",
-      "temperment": "chill",
+      "coat": "long",
+      "color": "white",
+      "temperment": "happy",
       "funFact": "likes beer",
       "disabilities": "",
       "allergies": "lots of dander"

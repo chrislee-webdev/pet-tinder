@@ -14,6 +14,8 @@ const typeDefs = gql`
     funFact: String
     disabilities: String
     allergies: String
+    likes: [String]
+    likesMe: [String]
   }
   input PetInput {
     name: String
@@ -45,10 +47,14 @@ const typeDefs = gql`
     user(username: String!): User
     users: [User]
     pets: [Pet]
+    pet(petId: [String]!): [Pet]
+    findMatch(petId: String!): [User]
   }
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
+    likePet(petId: String!, likedId: String!): Pet
+    unlikePet(petId: String!, likedId: String!): Pet
     addPet(input: PetInput!): Pet
     removePet(petId: String!): User
   }
