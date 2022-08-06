@@ -9,7 +9,7 @@ import auth from "../../utils/auth";
 function Navigation({ currentPage, handlePageChange }) {
   return (
     <header>
-      <h1>Pet Tinder</h1>
+      <h1 className="webTitle">Pet Tinder</h1>
 
       <nav>
         <ul>

@@ -1,7 +1,7 @@
 import React from "react";
 import Select from "react-select";
-import '../../styles/AddPet.css'
-
+import '../../styles/AddPet.css';
+import { ADD_PET } from '../../utils/mutations';
 
 const Age = [
   { label: "0 - 1", value: 1 },
