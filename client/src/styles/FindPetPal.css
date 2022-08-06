@@ -1,0 +1,25 @@
+.findPetContainer{
+   
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    background-color: rgb(242, 238, 233);
+   
+    
+}
+
+.findText{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    text-align:center;
+}
+
+.pupImg{
+    display: block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+
