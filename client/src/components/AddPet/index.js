@@ -1,5 +1,6 @@
 import React from "react";
 import Select from "react-select";
+import '../../styles/AddPet.css'
 
 
 const Age = [
@@ -33,8 +34,8 @@ const Breed = [
 
 function AddPet() {
   return (
-    <section>
-      <h2>Create a pet profile</h2>
+    <section className='addPetContainer'>
+      <h1>Create a pet profile</h1>
 
       <div>
         Breed: <Select options={Breed} />

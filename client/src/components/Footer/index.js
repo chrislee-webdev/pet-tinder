@@ -1,8 +1,9 @@
 import React from 'react'
+import '../../styles/Footer.css'
 
 function Footer() {
     return (
-        <section>
+        <section className='footer'>
             &copy; Pet Tinder 2022
         </section>
     )
