@@ -23,5 +23,9 @@
   "homepage": "https://github.com/chrislee-webdev/pet-tinder#readme",
   "devDependencies": {
     "concurrently": "^7.3.0"
+  },
+  "dependencies": {
+    "bootstrap": "^5.2.0",
+    "react-bootstrap": "^2.5.0"
   }
 }
