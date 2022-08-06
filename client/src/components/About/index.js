@@ -1,25 +1,8 @@
 import React from 'react';
 import coverImage from  '../../assets/cover-image.jpeg';
-import { useMutation } from '@apollo/client';
-import { ADD_USER } from '../../utils/mutations'
+
 
 function About() {
-
-    // ADD USER
-    const [addUser, {error}] = useMutation(ADD_USER);
-    
-    const handleFormSubmit = async event => {
-        event.preventDefault();
-
-        try {
-            const { data } = await addUser({
-                variables: { ...formState }
-            });
-            console.log(data)
-        } catch (e) {
-            console.log(e);
-        }
-    }
 
     return (
         <section>
