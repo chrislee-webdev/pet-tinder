@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import Navigation from "../Navigation";
+import Navigation from "../LikedPets/nav";
 import AddPet from "../AddPet";
 import FindPetPal from "../FindPetPal";
 import About from "../About";
 import Footer from "../Footer";
 import { LikedPets } from "../LikedPets";
-import LoginPage from "../logintemp/LoginPage";
+import LoginPage from "../LikedPets/LoginPage";
 import auth from "../../utils/auth";
 import { Route, Routes } from "react-router-dom";
 
