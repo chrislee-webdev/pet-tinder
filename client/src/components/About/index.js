@@ -1,5 +1,6 @@
 import React from "react";
 import coverImage from "../../assets/cover-image.jpeg";
+import '../../styles/About.css'
 
 
 
@@ -9,7 +10,7 @@ function About() {
       <img src={coverImage} style={{ width: "75%" }} alt="cover" />
 
       {/* title and decription of pet tinder */}
-      <p>Pinder: Puppy Love!</p>
+      <p className='pinderText'>Pinder: Puppy Love!</p>
     </section>
   );
 }

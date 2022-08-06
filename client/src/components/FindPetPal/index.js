@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { useQuery, useLazyQuery, useMutation } from "@apollo/client";
 import { ME, PETS } from "../../utils/queries";
 import auth from "../../utils/auth";
+import '../../styles/FindPetPal.css';
 
 function FindPetPal() {
   const [lastDirection, setLastDirection] = useState();
@@ -43,8 +44,23 @@ function FindPetPal() {
   };
 
   return (
-    <section>
-      <h1>Find a pal for your pet!</h1>
+    <section className='findPetContainer'>
+    <h1 className='findText'>Find a pal for your pet!</h1>
+    <div>
+    <img className='pupImg'src={require('../../assets/pals.jpeg')}
+        alt="puppies"
+    />
+    </div>
+    <div>
+    <img className='pupImg'src={require('../../assets/dalmatian.jpeg')}
+    alt="dalmatian"
+    />
+    </div>
+    <div>
+    <img className='pupImg' src={require('../../assets/frenchie.jpg')}
+    alt="frenchie"
+    />
+    </div>
       <img src={require("../../assets/pals.jpeg")} alt="puppies" />
       <div className="cardContainer"></div>
       {lastDirection ? (
@@ -54,6 +70,7 @@ function FindPetPal() {
       )}
     </section>
   );
+
 }
 //TODO: add pass and like buttons
 
