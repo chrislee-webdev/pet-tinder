@@ -14,12 +14,12 @@ function FindPetPal() {
             />
             </div>
             <div>
-            <img className='pupImg'src={require('../../assets/dalmatian.jpeg')}
+            <img className='dalmImg'src={require('../../assets/dalmatian.jpeg')}
             alt="dalmatian"
             />
             </div>
             <div>
-            <img className='pupImg' src={require('../../assets/frenchie.jpg')}
+            <img className='frenchImg' src={require('../../assets/frenchie.jpg')}
             alt="frenchie"
             />
             </div>

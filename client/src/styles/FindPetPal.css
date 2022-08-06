@@ -1,9 +1,15 @@
+*{
+    margin:0;
+    padding:0;
+}
+
 .findPetContainer{
-   
+    max-width: 100%;
     display:flex;
     flex-wrap:wrap;
     justify-content:space-between;
     background-color: rgb(242, 238, 233);
+    padding:1rem;
    
     
 }
@@ -17,9 +23,14 @@
 }
 
 .pupImg{
-    display: block;
-    margin-left:auto;
-    margin-right:auto;
+    width:400px;
+    
 }
 
+.dalmImg{
+    width:400px;
+}
 
+.frenchImg{
+    width:400px
+}
