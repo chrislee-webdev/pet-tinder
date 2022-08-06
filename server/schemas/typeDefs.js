@@ -8,12 +8,7 @@ const typeDefs = gql`
     age: Int
     breed: String
     gender: String
-    coat: String
-    color: String
-    temperment: String
-    funFact: String
-    disabilities: String
-    allergies: String
+    temperament: String
   }
   input PetInput {
     name: String
@@ -21,12 +16,7 @@ const typeDefs = gql`
     age: Int
     breed: String
     gender: String
-    coat: String
-    color: String
-    temperment: String
-    funFact: String
-    disabilities: String
-    allergies: String
+    temperament: String
   }
   type User {
     _id: ID

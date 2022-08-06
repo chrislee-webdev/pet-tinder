@@ -51,7 +51,7 @@ function AddPet() {
         Temperament: <Select options={Temper} />
       </p>
 
-      <buttom>Submit</buttom>
+      <button>Submit</button>
     </section>
   );
 }

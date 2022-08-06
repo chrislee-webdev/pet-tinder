@@ -24,13 +24,8 @@ mutation addPet($input: PetInput!, id: String!) {
         picture
         age
         breed
-        gender
-        coat
-        color
+        gender    
         temperment
-        funFact
-        disabilities
-        allergies}
       }
     }
 }`;
@@ -51,9 +46,8 @@ mutation removePet($petId: String!, $userId: String!) {
             age
             breed
             gender
-            coat
-            temperment
-            disabilities
+            temperament
+            
         }}
     }
 }`;
