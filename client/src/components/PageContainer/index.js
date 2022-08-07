@@ -8,6 +8,7 @@ import { LikedPets } from "../LikedPets";
 import LoginPage from "../LoginPage/LoginPage";
 import auth from "../../utils/auth";
 import { Route, Routes } from "react-router-dom";
+import Title from "../Title";
 
 export default function PortfolioContainer() {
   const [currentPage, setCurrentPage] = useState("About");
@@ -35,6 +36,7 @@ export default function PortfolioContainer() {
         currentPage={currentPage}
         handlePageChange={handlePageChange}
       />
+      <Title />
       <Routes>
         <Route path="/" element={<About />} />
         <Route path="/add-pet" element={<AddPet />} />
