@@ -2,6 +2,8 @@ import React from "react";
 import coverImage from "../../assets/cover-image.jpeg";
 import '../../styles/About.css'
 
+
+
 function About() {
   return (
     <section className="AboutContainer">

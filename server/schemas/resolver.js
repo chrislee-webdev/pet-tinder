@@ -1,9 +1,15 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User } = require("../models");
+const { User, Pet } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
+    me: async (_, args, ctx) => {
+      if (ctx.user) {
+        return User.findById(ctx.user._id);
+      }
+    },
+
     // takes either a username or an email
     // returns single user obj
     // data: {
@@ -69,6 +75,29 @@ const resolvers = {
       const pets = users.map((user) => user.pets);
       return pets.flat();
     },
+
+    pet: async (_, { petId }, ctx) => {
+      if (ctx.user) {
+        const users = await User.find({
+          pets: { $elemMatch: { _id: { $in: petId } } },
+        }).select("-_v -password");
+
+        return users.map((user) => user.pets).flat();
+      }
+    },
+
+    findMatch: async (_, { petId }, ctx) => {
+      if (ctx.user) {
+        const user = await User.findById(ctx.user._id); // find user data
+
+        const { likes, likesMe } = user.pets.find((pet) => pet.id === petId);
+        const match = likes.filter((like) => likesMe.includes(like));
+        const matchedPets = await User.find({
+          pets: { $elemMatch: { _id: { $in: match } } },
+        });
+        return matchedPets;
+      }
+    },
   },
 
   Mutation: {
@@ -86,6 +115,74 @@ const resolvers = {
       }
 
       return { token, newUser };
+    },
+
+    // takes the pet _id of liked pet
+    // returns array of liked pets
+    likePet: async (_, { petId, likedId }, ctx) => {
+      if (ctx.user) {
+        const user = await User.findByIdAndUpdate(
+          ctx.user._id,
+          {
+            $addToSet: { "pets.$[elem].likes": likedId },
+          },
+          {
+            arrayFilters: [{ "elem._id": petId }],
+            new: true,
+            runValidators: true,
+          }
+        ).select("-_v -password");
+
+        const likedPet = await User.findOneAndUpdate(
+          {
+            pets: { $elemMatch: { id: likedId } },
+          },
+          {
+            $addToSet: { "pets.$[elem].likesMe": petId },
+          },
+          {
+            arrayFilters: [{ "elem._id": likedId }],
+            new: true,
+            runValidators: true,
+          }
+        ).select("-_v -password");
+
+        return user.pets.find((pet) => pet.id === petId);
+      }
+      throw new AuthenticationError(`Not Logged In`);
+    },
+
+    unlikePet: async (_, { petId, likedId }, ctx) => {
+      if (ctx.user) {
+        const user = await User.findByIdAndUpdate(
+          ctx.user._id,
+          {
+            $pull: { "pets.$[elem].likes": likedId },
+          },
+          {
+            arrayFilters: [{ "elem._id": petId }],
+            new: true,
+            runValidators: true,
+          }
+        ).select("-_v -password");
+
+        const likedPet = await User.findOneAndUpdate(
+          {
+            pets: { $elemMatch: { id: likedId } },
+          },
+          {
+            $pull: { "pets.$[elem].likesMe": petId },
+          },
+          {
+            arrayFilters: [{ "elem._id": likedId }],
+            new: true,
+            runValidators: true,
+          }
+        ).select("-_v -password");
+
+        return user.pets.find((pet) => pet.id === petId);
+      }
+      throw new AuthenticationError(`Not Logged In`);
     },
 
     // takes pet obj:
