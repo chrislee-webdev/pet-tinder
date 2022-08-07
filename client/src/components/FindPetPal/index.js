@@ -2,10 +2,10 @@
 
 // import React
 import React, { useState } from "react";
-import TinderCard from "react-tinder-card";
-//import userData from '../../../../server/seed/userData.json'
-import { useQuery, useMutation } from "@apollo/client";
+import { useQuery, useLazyQuery, useMutation } from "@apollo/client";
 import { ME, PETS } from "../../utils/queries";
+import auth from "../../utils/auth";
+import "../../styles/FindPetPal.css";
 
 function FindPetPal() {
   //TODO: get user data
@@ -38,26 +38,31 @@ function FindPetPal() {
   };
 
   return (
-    <section>
-      <h1>Find a pal for your pet!</h1>
-      <img src={require("../../assets/pals.jpeg")} alt="puppies" />
-      <div className="cardContainer">
-        {pets.map((character) => (
-          <TinderCard
-            className="swipe"
-            key={pets.name}
-            onSwipe={(dir) => swipe(dir, pets.name)}
-            onCardLeftScreen={() => outOfFrame(pets.name)}
-          >
-            <div
-              style={{ picture: "url(" + character.url + ")" }}
-              className="card"
-            >
-              <h3>{pets.name}</h3>
-            </div>
-          </TinderCard>
-        ))}
+    <section className="findPetContainer">
+      <h1 className="findText">Find a pal for your pet!</h1>
+      <div>
+        <img
+          className="pupImg"
+          src={require("../../assets/pals.jpeg")}
+          alt="puppies"
+        />
       </div>
+      <div>
+        <img
+          className="pupImg"
+          src={require("../../assets/dalmatian.jpeg")}
+          alt="dalmatian"
+        />
+      </div>
+      <div>
+        <img
+          className="pupImg"
+          src={require("../../assets/frenchie.jpg")}
+          alt="frenchie"
+        />
+      </div>
+      <img src={require("../../assets/pals.jpeg")} alt="puppies" />
+      <div className="cardContainer"></div>
       {lastDirection ? (
         <h2 className="infoText">You swiped {lastDirection}</h2>
       ) : (

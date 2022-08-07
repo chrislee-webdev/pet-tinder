@@ -15,12 +15,7 @@ export const ME = gql`
         age
         breed
         gender
-        coat
-        color
         temperment
-        funFact
-        disabilities
-        allergies
         likes
         likesMe
       }
@@ -46,12 +41,7 @@ export const PETS = gql`
       age
       breed
       gender
-      coat
-      color
       temperment
-      funFact
-      disabilities
-      allergies
     }
   }
 `;

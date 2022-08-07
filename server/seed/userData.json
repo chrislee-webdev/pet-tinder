@@ -2,7 +2,7 @@
   {
     "username": "user1",
     "email": "user1@email.com",
-    "password": "password",
+    "password": "Password1!",
     "pets": {
       "name": "Bob",
       "picture": "https://placedog.net/500",
@@ -20,7 +20,7 @@
   {
     "username": "user2",
     "email": "user2@email.com",
-    "password": "password",
+    "password": "Password2@",
     "pets": {
       "name": "Billy",
       "picture": "https://placedog.net/500",
@@ -38,7 +38,7 @@
   {
     "username": "user3",
     "email": "user3@email.com",
-    "password": "password",
+    "password": "Password3#",
     "pets": {
       "name": "Ben",
       "picture": "https://placedog.net/500",
@@ -56,7 +56,7 @@
   {
     "username": "user4",
     "email": "user4@email.com",
-    "password": "password",
+    "password": "Password4$",
     "pets": {
       "name": "Benedict",
       "picture": "https://placedog.net/500",
@@ -74,7 +74,7 @@
   {
     "username": "user5",
     "email": "user5@email.com",
-    "password": "password",
+    "password": "Password5%",
     "pets": {
       "name": "Brendan",
       "picture": "https://placedog.net/500",
