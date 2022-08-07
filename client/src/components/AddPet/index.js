@@ -2,6 +2,7 @@ import React from "react";
 import Select from "react-select";
 import '../../styles/AddPet.css'
 
+
 const Age = [
   { label: "0 - 1", value: 1 },
   { label: "1 - 3", value: 2 },
@@ -36,21 +37,21 @@ function AddPet() {
     <section className='addPetContainer'>
       <h1>Create a pet profile</h1>
 
-      <p>
+      <div>
         Breed: <Select options={Breed} />
-      </p>
+      </div>
 
-      <p>
+      <div>
         Gender: <Select options={Gender} />
-      </p>
+      </div>
 
-      <p>
+      <div>
         Age: <Select options={Age} />
-      </p>
+      </div>
 
-      <p>
+      <div>
         Temperament: <Select options={Temper} />
-      </p>
+      </div>
     </section>
   );
 }
