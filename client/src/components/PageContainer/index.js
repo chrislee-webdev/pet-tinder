@@ -4,6 +4,7 @@ import AddPet from "../AddPet";
 import FindPetPal from "../FindPetPal";
 import About from "../About";
 import Footer from "../Footer";
+import Contact from "../Contact/Contact";
 import { LikedPets } from "../LikedPets";
 import LoginPage from "../LoginPage/LoginPage";
 import auth from "../../utils/auth";
@@ -26,6 +27,9 @@ export default function PortfolioContainer() {
     if (currentPage === "Login") {
       return <LoginPage />;
     }
+    if (currentPage === "Contact") {
+      return <Contact />;
+    }
   };
 
   const handlePageChange = (page) => setCurrentPage(page);
@@ -42,6 +46,7 @@ export default function PortfolioContainer() {
         <Route path="/add-pet" element={<AddPet />} />
         <Route path="/find-pet-pal" element={<FindPetPal />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       <footer>
         <Footer></Footer>
