@@ -94,7 +94,7 @@
   }
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1023px) {
   .toggleButton {
     display: relative;
     float: inline-end;
@@ -114,7 +114,7 @@
   }
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1023px) {
   .toggleButton {
     display: none;
   }
@@ -131,7 +131,7 @@
     flex-direction: row;
   }
 }
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1023px) {
   #open {
     height: 50vh;
     margin-left: auto;

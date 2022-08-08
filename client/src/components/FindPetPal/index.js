@@ -7,31 +7,25 @@ import { ME, PETS } from "../../utils/queries";
 import auth from "../../utils/auth";
 
 function FindPetPal() {
-  const [lastDirection, setLastDirection] = useState();
   //TODO: get user data
   const {
-    loading: userLoading,
-    error: userError,
+    loading: gettingUser,
     data: userData,
+    error: UserDataErr,
   } = useQuery(ME);
-  const { loading, error, data: petsData } = useQuery(PETS);
+  const {
+    loading: gettingPets,
+    data: petData,
+    error: PetDataErr,
+  } = useQuery(PETS);
+  const [lastDirection, setLastDirection] = useState();
 
-  if (userLoading || loading) {
+  if (gettingUser || gettingPets) {
     return <h1>Loading...</h1>;
-  }
-  if (userError || error) {
-    console.log(userError);
-    return <h1>Error!</h1>;
-  }
-
-  if (!auth.loggedIn()) {
-    return <h3>Please log in to view this page!</h3>;
   }
 
   const { me } = userData;
-  const { pets } = petsData;
-
-  console.log(pets);
+  const { pets } = petData;
 
   const swipe = (direction, nameToDelete) => {
     console.log("removing: " + nameToDelete);
@@ -43,8 +37,29 @@ function FindPetPal() {
   };
 
   return (
-    <section>
-      <h1>Find a pal for your pet!</h1>
+    <section className="findPetContainer">
+      <h1 className="findText">Find a pal for your pet!</h1>
+      <div>
+        <img
+          className="pupImg"
+          src={require("../../assets/pals.jpeg")}
+          alt="puppies"
+        />
+      </div>
+      <div>
+        <img
+          className="pupImg"
+          src={require("../../assets/dalmatian.jpeg")}
+          alt="dalmatian"
+        />
+      </div>
+      <div>
+        <img
+          className="pupImg"
+          src={require("../../assets/frenchie.jpg")}
+          alt="frenchie"
+        />
+      </div>
       <img src={require("../../assets/pals.jpeg")} alt="puppies" />
       <div className="cardContainer"></div>
       {lastDirection ? (

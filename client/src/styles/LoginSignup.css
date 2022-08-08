@@ -97,6 +97,6 @@ input[type="submit"]:hover {
   }
 
   input[type="submit"] {
-    width: 100%;
+    width: 100px;
   }
 }
