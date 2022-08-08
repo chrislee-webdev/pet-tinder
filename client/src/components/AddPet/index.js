@@ -53,9 +53,6 @@ const AddPet = () => {
   };
   const uploadPetPic = (e) => {
     console.log(selectedFile);
-
-    const formData = new FormData();
-    formData.append("File", selectedFile);
   };
 
   const handleChange = async (event) => {
