@@ -20,8 +20,12 @@ export function LikedPets() {
     }
   );
 
-  const [likePet, { error: likeErr }] = useMutation(LIKE_PET);
-  const [unlikePet, { error: unlikeErr }] = useMutation(UNLIKE_PET);
+  const [likePet, { error: likeErr }] = useMutation(LIKE_PET, {
+    refetchQueries: [ME, PET],
+  });
+  const [unlikePet, { error: unlikeErr }] = useMutation(UNLIKE_PET, {
+    refetchQueries: [ME, PET],
+  });
 
   useEffect(() => {
     if (petState !== "") {
@@ -56,9 +60,6 @@ export function LikedPets() {
   console.log(likesMe);
 
   const likeBack = (e, yourPetID, theirPetID) => {
-    console.log(yourPetID);
-    console.log(theirPetID);
-
     if (
       me.pets.find((pet) => pet._id === yourPetID).likes.includes(theirPetID)
     ) {
@@ -69,6 +70,13 @@ export function LikedPets() {
     likePet({ variables: { petId: yourPetID, likedId: theirPetID } });
     e.target.textContent = "💕";
     e.target.disabled = true;
+  };
+
+  const unlike = (e, yourPetID, theirPetID) => {
+    console.log(yourPetID);
+    console.log(theirPetID);
+
+    unlikePet({ variables: { petId: yourPetID, likedId: theirPetID } });
   };
 
   return (
@@ -87,7 +95,32 @@ export function LikedPets() {
             {yourPet._id === petState._id &&
               likedPetsData?.pet.map((theirPet) => (
                 <li key={theirPet._id}>
-                  <h3>{theirPet.name}</h3>
+                  <h3>
+                    {theirPet.name}
+                    <button
+                      onClick={(e) => unlike(e, yourPet._id, theirPet._id)}
+                    >
+                      Unlike❌
+                    </button>
+                  </h3>
+                  <img src={theirPet.picture} width="200px" />
+                  <p>Age: {theirPet.age}</p>
+                  <p>Gender: {theirPet.gender}</p>
+                  <p>Breed: {theirPet.breed}</p>
+                  <p>Coat: {theirPet.coat}</p>
+                  <p>Color: {theirPet.color}</p>
+                  {theirPet.temperment !== "" && (
+                    <p>Temperment: {theirPet.temperment}</p>
+                  )}
+                  {theirPet.disabilities !== "" && (
+                    <p>Disabilities: {theirPet.disabilities}</p>
+                  )}
+                  {theirPet.allergies !== "" && (
+                    <p>Allergies: {theirPet.allergies}</p>
+                  )}
+                  {theirPet.funFact !== "" && (
+                    <p>Fun Fact: {theirPet.funFact}</p>
+                  )}
                 </li>
               ))}
           </ol>
@@ -131,7 +164,7 @@ export function LikedPets() {
                     )}
                     {theirPet.funFact !== "" && (
                       <p>Fun Fact: {theirPet.funFact}</p>
-                    )}{" "}
+                    )}
                   </li>
                 </ol>
               ))}
