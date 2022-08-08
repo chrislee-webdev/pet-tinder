@@ -25,16 +25,16 @@ function Footer() {
   return (
     <div className="footer-div">
       <footer>
-        <ul id="contacts" class="social-media-icons">
+        <ul id="contacts" className="social-media-icons">
           <li>
             <a
               href="mailto:emandaabyou@gmail.com?subject=Mail from Our Site"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <li>
+              <div>
                 <FiMail />
-              </li>
+              </div>
             </a>
           </li>
           <li>
@@ -43,9 +43,9 @@ function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <li>
+              <div>
                 <FaFacebookSquare />
-              </li>
+              </div>
             </a>
           </li>
           <li>
@@ -54,9 +54,9 @@ function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <li>
+              <div>
                 <FaLinkedin />
-              </li>
+              </div>
             </a>
           </li>
           <li>
@@ -65,9 +65,9 @@ function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <li>
+              <div>
                 <FaGithub />
-              </li>
+              </div>
             </a>
           </li>
           <li>
@@ -76,9 +76,9 @@ function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <li>
+              <div>
                 <FaTwitter />
-              </li>
+              </div>
             </a>
           </li>
           <li className="instagram">
@@ -87,14 +87,14 @@ function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <li>
+              <div>
                 <FaInstagram />
-              </li>
+              </div>
             </a>
           </li>
         </ul>
 
-        <div class="copyright">
+        <div className="copyright">
           <a
             href="https://github.com/ghashe/License/tree/main"
             target="_blank"
