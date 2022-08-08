@@ -1,7 +1,6 @@
 .footer{
     text-align:center;
     position: static;
-    bottom: 0px;
     width:100%;
     height:75px;
     background-image: linear-gradient(to right, rgb(216, 3, 3),rgb(238, 120, 16),rgb(235, 192, 21));
