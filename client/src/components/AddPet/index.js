@@ -2,7 +2,7 @@ import { useMutation } from "@apollo/client";
 import React, { useState } from "react";
 import Select from "react-select";
 import "../../styles/AddPet.css";
-import { ADD_PET } from "../../utils/mutations";
+import { ADD_PET, UPLOAD_PIC } from "../../utils/mutations";
 import Auth from "../../utils/auth";
 
 const Age = [
@@ -43,6 +43,7 @@ const AddPet = () => {
   });
 
   const [addPet, { error }] = useMutation(ADD_PET);
+  const [uploadPic, { data, error: uploadErr }] = useMutation(UPLOAD_PIC);
 
   const [selectedFile, selectFile] = useState();
   const [isFileSelected, setFileStatus] = useState("notSelected");
@@ -51,8 +52,20 @@ const AddPet = () => {
     selectFile(e.target.files[0]);
     setFileStatus("Selected");
   };
-  const uploadPetPic = (e) => {
+  const uploadPetPic = async (e) => {
+    if (isFileSelected === "notSelected") {
+      return alert(`File not Selected`);
+    }
     console.log(selectedFile);
+
+    try {
+      await uploadPic({ variables: selectedFile });
+      if (data.url) {
+        setAddPetData({ ...addPetData, picture: data.url });
+      }
+    } catch (err) {
+      if (err) console.error(err);
+    }
   };
 
   const handleChange = async (event) => {

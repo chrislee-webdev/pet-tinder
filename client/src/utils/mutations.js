@@ -63,13 +63,11 @@ export const REMOVE_PET = gql`
 `;
 
 export const LOGIN_USER = gql`
-  mutation login($email: String!, $password: String!) {
+  mutation Login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
-      token: user {
+      token
+      user {
         _id
-        username
-        email
-        password
       }
     }
   }
@@ -107,6 +105,18 @@ export const UNLIKE_PET = gql`
         likes
         likesMe
       }
+    }
+  }
+`;
+
+export const UPLOAD_PIC = gql`
+  mutation UploadPic($input: Picture) {
+    uploadPic(input: $input) {
+      filename
+      name
+      mime
+      extention
+      url
     }
   }
 `;

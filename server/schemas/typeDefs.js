@@ -43,9 +43,11 @@ const typeDefs = gql`
     user: User
   }
   input Picture {
+    lastModified: Int
     name: String
     size: Int
     type: String
+    webkitRelativePath: String
   }
   type uploadedPic {
     filename: String
@@ -69,7 +71,7 @@ const typeDefs = gql`
     unlikePet(petId: String!, likedId: String!): Pet
     addPet(input: PetInput!): Pet
     removePet(petId: String!): User
-    uploadPic(input: Picture!): uploadedPic
+    uploadPic(input: Picture): uploadedPic
   }
 `;
 
