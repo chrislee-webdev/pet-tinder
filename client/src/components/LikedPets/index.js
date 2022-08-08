@@ -12,6 +12,7 @@ export function LikedPets() {
   const [petState, setPet] = useState("");
   const { loading: gettingMe, error: meErr, data: myData } = useQuery(ME);
   const { data: petsData, loading: gettingPets } = useQuery(PETS);
+  const [getMatches, { loading: gettingMatches }] = useLazyQuery(FIND_MATCH);
 
   const [getLiked, { data: likedPetsData, error, loading }] = useLazyQuery(
     PET,
@@ -57,8 +58,6 @@ export function LikedPets() {
     )
     .flat();
 
-  console.log(likesMe);
-
   const likeBack = (e, yourPetID, theirPetID) => {
     if (
       me.pets.find((pet) => pet._id === yourPetID).likes.includes(theirPetID)
@@ -73,10 +72,20 @@ export function LikedPets() {
   };
 
   const unlike = (e, yourPetID, theirPetID) => {
-    console.log(yourPetID);
-    console.log(theirPetID);
-
     unlikePet({ variables: { petId: yourPetID, likedId: theirPetID } });
+  };
+
+  const getContactInfo = async (e, petId, matchId) => {
+    try {
+      const {
+        data: { findMatch },
+      } = await getMatches({ variables: { petId: petId } });
+      console.log(findMatch);
+      const match = findMatch.filter((user) => user.pets.includes(matchId));
+      console.log(match);
+    } catch (err) {
+      if (err) throw err;
+    }
   };
 
   return (
@@ -89,7 +98,14 @@ export function LikedPets() {
               .filter((theirPet) => yourPet.likes.includes(theirPet._id))
               .map((theirPet) => (
                 <h3>
-                  {theirPet.name} <button>Get in touch ✉️</button>
+                  {theirPet.name}
+                  <button
+                    onClick={(e) =>
+                      getContactInfo(e, yourPet._id, theirPet._id)
+                    }
+                  >
+                    Get in touch ✉️
+                  </button>
                 </h3>
               ))}
           </ol>

@@ -251,27 +251,6 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-
-    // uploads user picture to imgbb host
-    uploadPic: async (_, { input }, ctx) => {
-      if (ctx.user) {
-        console.log(input);
-        // try {
-        //   const req = await fetch(
-        //     `https://api.imgbb.com/1/upload?key=dd9e796ad2397d60fca82af89819101b&name=${picture.name}&image=${formData}&expiration=604800`,
-        //     {
-        //       method: "POST",
-        //     }
-        //   );
-
-        //   const res = await req.json();
-        //   console.log(res);
-        //   // return res.data.image;
-        // } catch (err) {
-        //   if (err) throw err;
-        // }
-      }
-    },
   },
 };
 
