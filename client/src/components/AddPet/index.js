@@ -1,8 +1,9 @@
 import { useMutation } from "@apollo/client";
 import React, { useState } from "react";
 import Select from "react-select";
+import Base64 from "react-file-base64";
 import "../../styles/AddPet.css";
-import { ADD_PET, UPLOAD_PIC } from "../../utils/mutations";
+import { ADD_PET } from "../../utils/mutations";
 import Auth from "../../utils/auth";
 
 const Age = [
@@ -43,7 +44,7 @@ const AddPet = () => {
   });
 
   const [addPet, { error }] = useMutation(ADD_PET);
-  const [uploadPic, { data, error: uploadErr }] = useMutation(UPLOAD_PIC);
+  // const [uploadPic, { data, error: uploadErr }] = useMutation(UPLOAD_PIC);
 
   const [selectedFile, selectFile] = useState();
   const [isFileSelected, setFileStatus] = useState("notSelected");
@@ -58,11 +59,19 @@ const AddPet = () => {
     }
     console.log(selectedFile);
 
+    const body = new FormData();
+    body.append("image", selectedFile);
+
     try {
-      await uploadPic({ variables: selectedFile });
-      if (data.url) {
-        setAddPetData({ ...addPetData, picture: data.url });
-      }
+      const req = await fetch(
+        `https://api.imgbb.com/1/upload?expiration=604800&name=${selectedFile.name}&key=dd9e796ad2397d60fca82af89819101b`,
+        {
+          method: "POST",
+          body: body,
+        }
+      );
+      const res = await req.json();
+      console.log(res);
     } catch (err) {
       if (err) console.error(err);
     }
@@ -105,6 +114,13 @@ const AddPet = () => {
         <div>Pet Name:</div>
         <div value={addPetData.picture}>
           <input type={"file"} name={"petPic"} onChange={picChangeHandler} />
+          {/* <Base64
+            multiple={false}
+            onDone={(file) => {
+              selectFile(file);
+              picChangeHandler();
+            }}
+          /> */}
           <input
             type={"button"}
             name="uploadPic"

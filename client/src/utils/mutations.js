@@ -110,7 +110,7 @@ export const UNLIKE_PET = gql`
 `;
 
 export const UPLOAD_PIC = gql`
-  mutation UploadPic($input: Picture) {
+  mutation UploadPic($input: Picture!) {
     uploadPic(input: $input) {
       filename
       name
