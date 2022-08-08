@@ -82,6 +82,21 @@ export function LikedPets() {
   return (
     <section>
       <div>
+        <h2>Matches</h2>
+        {me.pets.map((yourPet) => (
+          <ol>
+            {likesMe
+              .filter((theirPet) => yourPet.likes.includes(theirPet._id))
+              .map((theirPet) => (
+                <h3>
+                  {theirPet.name} <button>Get in touch ✉️</button>
+                </h3>
+              ))}
+          </ol>
+        ))}
+      </div>
+
+      <div>
         <h2>Click your pet to see who you've liked</h2>
         {me.pets.map((yourPet) => (
           <ol key={yourPet._id}>
