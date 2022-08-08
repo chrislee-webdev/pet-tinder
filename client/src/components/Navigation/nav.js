@@ -4,7 +4,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import auth from "../../utils/auth";
-import styles from '../../styles/Navigation.css';
+import styles from "../../styles/Navigation.css";
 
 // Navigation function
 function Navigation({ currentPage, handlePageChange }) {
@@ -37,7 +37,6 @@ function Navigation({ currentPage, handlePageChange }) {
               </Link>
             )}{" "}
           </li>
-
           <li className="mx-2 aboutBtn">
             <Link
               to={"/"}
@@ -49,19 +48,32 @@ function Navigation({ currentPage, handlePageChange }) {
               Homepage
             </Link>
           </li>
-
-          <li className="mx-2 addPetBtn">
-            <Link
-              to={"/add-pet"}
-              onClick={() => handlePageChange("AddPet")}
-              className={
-                currentPage === "AddPet" ? "nav-link active" : "nav-link"
-              }
-            >
-              Add a pet
-            </Link>
-          </li>
-
+          {auth.loggedIn() && (
+            <li className="mx-2 addPetBtn">
+              <Link
+                to={"/add-pet"}
+                onClick={() => handlePageChange("AddPet")}
+                className={
+                  currentPage === "AddPet" ? "nav-link active" : "nav-link"
+                }
+              >
+                Add a pet
+              </Link>
+            </li>
+          )}{" "}
+          {auth.loggedIn() && (
+            <li className="mx-2 loginBtn">
+              <Link
+                to={"/my-likes"}
+                onClick={() => handlePageChange("MyLikes")}
+                className={
+                  currentPage === "MyLikes" ? "nav-link active" : "nav-link"
+                }
+              >
+                My Likes
+              </Link>
+            </li>
+          )}{" "}
           <li className="mx-2 findPetPalBtn">
             <Link
               to={"find-pet-pal"}

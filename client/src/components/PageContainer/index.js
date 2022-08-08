@@ -7,7 +7,7 @@ import Footer from "../Footer";
 import { LikedPets } from "../LikedPets";
 import LoginPage from "../LoginPage/LoginPage";
 import auth from "../../utils/auth";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 
 export default function PortfolioContainer() {
   const [currentPage, setCurrentPage] = useState("About");
@@ -37,8 +37,17 @@ export default function PortfolioContainer() {
       />
       <Routes>
         <Route path="/" element={<About />} />
-        <Route path="/add-pet" element={<AddPet />} />
+        <Route
+          path="/add-pet"
+          element={auth.loggedIn() ? <AddPet /> : <Navigate replace to="/" />}
+        />
         <Route path="/find-pet-pal" element={<FindPetPal />} />
+        <Route
+          path="/my-likes"
+          element={
+            auth.loggedIn() ? <LikedPets /> : <Navigate replace to="/" />
+          }
+        />
         <Route path="/login" element={<LoginPage />} />
       </Routes>
       <footer>
