@@ -1,0 +1,59 @@
+.login {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    position: relative;
+    left: 45%;
+}
+
+.loginContainer {
+  position: relative; 
+  width:100%;
+  padding:100px;
+  margin: 5px;
+  background-color: rgb(242, 238, 233);
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+
+.input input {
+    width: 200px;
+    border: solid 2px black;
+    border-radius: 5px;
+    padding: 5px;
+    align-items: center;
+}
+
+.signUp {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold; 
+    position: relative;
+    left: 45%;
+}
+
+.signUpContainer {
+    width:100%;
+    padding:100px;
+    background-color: rgb(242, 238, 233);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+}
+
+
+.submitBtn {
+    width: 200px;
+    border-radius: 25%;
+    background-color: black;
+    color: white;
+    margin-right:5%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    position: absolute;
+    left: 42%;
+    bottom: 15%;
+}
+
+.submitBtn:hover {
+    background-color:#f0d19a;
+    color:black;
+}
+

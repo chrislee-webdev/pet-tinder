@@ -1,10 +1,9 @@
 .footer{
-
-    padding:10px;
     text-align:center;
-    position:absolute;
+    position: static;
+    bottom: 0px;
     width:100%;
-    height:150px;
+    height:75px;
     background-image: linear-gradient(to right, rgb(216, 3, 3),rgb(238, 120, 16),rgb(235, 192, 21));
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: bold;

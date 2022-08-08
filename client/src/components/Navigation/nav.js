@@ -10,7 +10,7 @@ import styles from '../../styles/Navigation.css';
 function Navigation({ currentPage, handlePageChange }) {
   return (
     <header className="header">
-      <h1 className="webTitle">Pet Tinder</h1>
+      <h1 className="webTitle">Pinder: Puppy Love!</h1>
 
       <nav>
         <ul>

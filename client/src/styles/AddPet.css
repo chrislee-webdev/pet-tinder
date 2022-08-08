@@ -4,4 +4,19 @@
   background-color: rgb(242, 238, 233);
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   align-items: center;
+  position: absolute;
+  left: 35%;
+  top: 30%;
+}
+
+.btn {
+  border-radius: 25%;
+  background-color: black;
+  color: white;
+  margin-right:5%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  position: absolute;
+  left: 42%;
+  bottom: 8%;
 }
