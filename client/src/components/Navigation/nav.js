@@ -4,16 +4,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import auth from "../../utils/auth";
+import styles from '../../styles/Navigation.css';
 
 // Navigation function
 function Navigation({ currentPage, handlePageChange }) {
   return (
-    <header>
+    <header className="header">
       <h1 className="webTitle">Pet Tinder</h1>
 
       <nav>
         <ul>
-          <li className="mx-2">
+          <li className="mx-2 loginBtn">
             {auth.loggedIn() ? (
               <Link
                 to={"/"}
@@ -37,7 +38,7 @@ function Navigation({ currentPage, handlePageChange }) {
             )}{" "}
           </li>
 
-          <li className="mx-2">
+          <li className="mx-2 aboutBtn">
             <Link
               to={"/"}
               onClick={() => handlePageChange("About")}
@@ -49,7 +50,7 @@ function Navigation({ currentPage, handlePageChange }) {
             </Link>
           </li>
 
-          <li className="mx-2">
+          <li className="mx-2 addPetBtn">
             <Link
               to={"/add-pet"}
               onClick={() => handlePageChange("AddPet")}
@@ -61,7 +62,7 @@ function Navigation({ currentPage, handlePageChange }) {
             </Link>
           </li>
 
-          <li className="mx-2">
+          <li className="mx-2 findPetPalBtn">
             <Link
               to={"find-pet-pal"}
               onClick={() => handlePageChange("FindPetPal")}

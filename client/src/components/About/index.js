@@ -1,6 +1,6 @@
 import React from "react";
 import coverImage from "../../assets/cover-image.jpeg";
-import '../../styles/About.css'
+import '../../styles/About.css';
 
 
 
