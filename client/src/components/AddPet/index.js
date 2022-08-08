@@ -1,9 +1,9 @@
 import { useMutation } from "@apollo/client";
 import React, { useState } from "react";
 import Select from "react-select";
-import '../../styles/AddPet.css';
-import { ADD_PET } from '../../utils/mutations';
-import Auth from '../../utils/auth';
+import "../../styles/AddPet.css";
+import { ADD_PET } from "../../utils/mutations";
+import Auth from "../../utils/auth";
 
 const Age = [
   { label: "0 - 1", value: 1 },
@@ -34,73 +34,95 @@ const Breed = [
   { label: "Samoyed", value: 5 },
 ];
 const AddPet = () => {
-  const [addPetData, setAddPetData] = useState({ 
-    age: '', 
-    gender: '', 
-    temper: '', 
-    breed: '',
+  const [addPetData, setAddPetData] = useState({
+    age: "",
+    gender: "",
+    temper: "",
+    breed: "",
+    picture: "",
   });
-
 
   const [addPet, { error }] = useMutation(ADD_PET);
 
+  const [selectedFile, selectFile] = useState();
+  const [isFileSelected, setFileStatus] = useState("notSelected");
+
+  const picChangeHandler = (e) => {
+    selectFile(e.target.files[0]);
+    setFileStatus("Selected");
+  };
+  const uploadPetPic = (e) => {
+    console.log(selectedFile);
+
+    const formData = new FormData();
+    formData.append("File", selectedFile);
+  };
 
   const handleChange = async (event) => {
     const { name, value } = event.target;
     setAddPetData({
-      ...addPetData, 
+      ...addPetData,
       [name]: value,
-    })
+    });
   };
 
-//submit form
+  //submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-  try {
-    const { data } = await addPet({
-      variables: { ...addPetData}
-    })
-    console.log(data);
-    Auth.login(data.addPet.token)
-  }catch (e) {
-    console.error(e);
-  }
+    try {
+      const { data } = await addPet({
+        variables: { ...addPetData },
+      });
+      console.log(data);
+      Auth.login(data.addPet.token);
+    } catch (e) {
+      console.error(e);
+    }
     setAddPetData({
-      age:'',
-      gender: '',
-      temper: '',
-      breed: '',
+      age: "",
+      gender: "",
+      temper: "",
+      breed: "",
+      picture: "",
     });
   };
 
   return (
- 
-    <section className='addPetContainer'>
+    <section className="addPetContainer">
       <h1>Create a pet profile</h1>
       <form onSubmit={handleFormSubmit}>
-      <div>
-        Pet Name: 
-      </div>
-      <div value={addPetData.breed} onChange={handleChange}>
-        Breed: <Select options={Breed} />
-      </div>
+        <div>Pet Name:</div>
+        <div value={addPetData.picture}>
+          <input type={"file"} name={"petPic"} onChange={picChangeHandler} />
+          <input
+            type={"button"}
+            name="uploadPic"
+            onClick={uploadPetPic}
+            value="Upload"
+          />
+        </div>
+        <div value={addPetData.breed} onChange={handleChange}>
+          Breed: <Select options={Breed} />
+        </div>
 
-      <div value={addPetData.gender} onChange={handleChange}>
-        Gender: <Select options={Gender} />
-      </div>
+        <div value={addPetData.gender} onChange={handleChange}>
+          Gender: <Select options={Gender} />
+        </div>
 
-      <div value={addPetData.age} onChange={handleChange}>
-        Age: <Select options={Age} />
-      </div>
+        <div value={addPetData.age} onChange={handleChange}>
+          Age: <Select options={Age} />
+        </div>
 
-      <div value={addPetData.temper} onChange={handleChange}>
-        Temperament: <Select options={Temper} />
-      </div>
-      <button className="btn" type='submit'>Submit</button>
-      </form> 
+        <div value={addPetData.temper} onChange={handleChange}>
+          Temperament: <Select options={Temper} />
+        </div>
+        <button className="btn" type="submit">
+          Submit
+        </button>
+      </form>
     </section>
   );
-}
+};
 
 export default AddPet;
