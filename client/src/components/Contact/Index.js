@@ -3,7 +3,7 @@ import React from "react";
 import emailjs from "emailjs-com";
 import Emoji from "a11y-react-emoji";
 
-export default function Contact() {
+function Contact() {
   function sendEmail(e) {
     e.preventDefault();
 
@@ -30,7 +30,7 @@ export default function Contact() {
 
   return (
     <div className="form_container">
-      <h1>I’d Love to Hear from You </h1>
+      <h1>We’d Love to Hear from You </h1>
       <form className="contact-form" onSubmit={sendEmail}>
         <input type="hidden" name="contact_number" />
         <label>
@@ -48,3 +48,5 @@ export default function Contact() {
     </div>
   );
 }
+
+export default Contact;

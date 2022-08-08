@@ -71,6 +71,13 @@ function Navigation({ currentPage, handlePageChange }) {
         >
           Find pet pal
         </Link>
+        <Link
+          to={"/contact"}
+          onClick={() => handlePageChange("Contact")}
+          className={currentPage === "Contact" ? "nav-link active" : "nav-link"}
+        >
+          Contact
+        </Link>
       </div>
     </div>
   );

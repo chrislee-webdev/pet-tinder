@@ -4,7 +4,7 @@ import AddPet from "../AddPet";
 import FindPetPal from "../FindPetPal";
 import About from "../About";
 import Footer from "../Footer";
-import Contact from "../Contact/Contact";
+import Contact from "../Contact/Index";
 import { LikedPets } from "../LikedPets";
 import LoginPage from "../LoginPage/LoginPage";
 import auth from "../../utils/auth";

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_USER, LOGIN_USER } from "../../utils/mutations";
 import auth from "../../utils/auth";
+import "../../styles/LoginSignup.css";
 
 export default function LoginPage() {
   const [
@@ -144,56 +145,58 @@ export default function LoginPage() {
   };
   return (
     <>
-      <h2>Login</h2>
-      <form onSubmit={handleLoginSubmit}>
-        <input
-          placeholder="Email"
-          name="email"
-          onBlur={(e) => emailVal(e.target.value, "login")}
-          onChange={(e) => handleInputChange(e.target.value, e.target.name)}
-        />
-        <input
-          placeholder="Password"
-          type={"password"}
-          name="password"
-          onBlur={(e) => passwordVal(e.target.value, "login")}
-          onChange={(e) => handleInputChange(e.target.value, e.target.name)}
-        />
-        <input type={"submit"} value="Submit" />
-        <h3 style={{ color: "red" }}>{loginErrMsg}</h3>
-      </form>
+      <div className="form_container">
+        <form onSubmit={handleLoginSubmit}>
+          <h2>Login</h2>
+          <input
+            placeholder="Email"
+            name="email"
+            onBlur={(e) => emailVal(e.target.value, "login")}
+            onChange={(e) => handleInputChange(e.target.value, e.target.name)}
+          />
+          <input
+            placeholder="Password"
+            type={"password"}
+            name="password"
+            onBlur={(e) => passwordVal(e.target.value, "login")}
+            onChange={(e) => handleInputChange(e.target.value, e.target.name)}
+          />
+          <input type={"submit"} value="Submit" />
+          <h3 style={{ color: "red" }}>{loginErrMsg}</h3>
+        </form>
 
-      <h2>Sign Up</h2>
-      <form onSubmit={handleSignupSubmit}>
-        <input
-          placeholder="Username"
-          name="username"
-          onBlur={(e) => usernameVal(e.target.value)}
-          onChange={(e) => handleInputChange(e.target.value, e.target.name)}
-        />
-        <input
-          placeholder="Email"
-          type={"email"}
-          name="email"
-          onBlur={(e) => emailVal(e.target.value, "signup")}
-          onChange={(e) => handleInputChange(e.target.value, e.target.name)}
-        />
-        <input
-          placeholder="Password"
-          type={"password"}
-          name="password"
-          onBlur={(e) => passwordVal(e.target.value, "signup")}
-          onChange={(e) => handleInputChange(e.target.value, e.target.name)}
-        />
-        <input
-          placeholder="Confirm Password"
-          type={"password"}
-          name="confirm password"
-          onBlur={(e) => passConf(e.target.value)}
-        />
-        <input type={"submit"} value="Submit" />
-        <h3 style={{ color: "red" }}>{signupErrMsg}</h3>
-      </form>
+        <form onSubmit={handleSignupSubmit}>
+          <h2>Sign Up</h2>
+          <input
+            placeholder="Username"
+            name="username"
+            onBlur={(e) => usernameVal(e.target.value)}
+            onChange={(e) => handleInputChange(e.target.value, e.target.name)}
+          />
+          <input
+            placeholder="Email"
+            type={"email"}
+            name="email"
+            onBlur={(e) => emailVal(e.target.value, "signup")}
+            onChange={(e) => handleInputChange(e.target.value, e.target.name)}
+          />
+          <input
+            placeholder="Password"
+            type={"password"}
+            name="password"
+            onBlur={(e) => passwordVal(e.target.value, "signup")}
+            onChange={(e) => handleInputChange(e.target.value, e.target.name)}
+          />
+          <input
+            placeholder="Confirm Password"
+            type={"password"}
+            name="confirm password"
+            onBlur={(e) => passConf(e.target.value)}
+          />
+          <input type={"submit"} value="Submit" />
+          <h3 style={{ color: "red" }}>{signupErrMsg}</h3>
+        </form>
+      </div>
     </>
   );
 }
