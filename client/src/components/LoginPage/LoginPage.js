@@ -144,9 +144,10 @@ export default function LoginPage() {
     }
   };
   return (
-    <>
+    <section>
       <h2 className="login">Login</h2>
       <form className="loginContainer" onSubmit={handleLoginSubmit}>
+        <div>
         <div className="input">
         <input
           placeholder="Email"
@@ -164,12 +165,14 @@ export default function LoginPage() {
           onChange={(e) => handleInputChange(e.target.value, e.target.name)}
         />
         </div>
+        </div>
         <input className="submitBtn" type={"submit"} value="Submit" />
         <h3 style={{ color: "red" }}>{loginErrMsg}</h3>
       </form>
 
       <h2 className="signUp">Sign Up</h2>
       <form className="signUpContainer" onSubmit={handleSignupSubmit}>
+        <div>
         <div className="input">
         <input 
           placeholder="Username"
@@ -204,9 +207,10 @@ export default function LoginPage() {
           onBlur={(e) => passConf(e.target.value)}
         />
         </div>
-        <input className="submitBtn" type={"submit"} value="Submit" />
+        </div>
+        <input className="submitBtn2" type={"submit"} value="Submit" />
         <h3 style={{ color: "red" }}>{signupErrMsg}</h3>
       </form>
-    </>
+    </section>
   );
 }

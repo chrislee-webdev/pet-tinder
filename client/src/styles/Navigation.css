@@ -28,6 +28,7 @@
  .aboutBtn:hover {
     background-color:#f0d19a;
     color:black;
+    text-decoration: underline;
 }
 .addPetBtn {
     width: 15%;
@@ -44,6 +45,7 @@
  .addPetBtn:hover {
     background-color:#f0d19a;
     color:black;
+    text-decoration: underline;
 }
 
 .findPetPalBtn {
@@ -60,6 +62,7 @@
  .findPetPalBtn:hover {
     background-color:#f0d19a;
     color:black;
+    text-decoration: underline;
 }
 
 .loginBtn {
@@ -80,4 +83,5 @@
 .loginBtn:hover {
     background-color:#f0d19a;
     color:black; 
+    text-decoration: underline;
 }
