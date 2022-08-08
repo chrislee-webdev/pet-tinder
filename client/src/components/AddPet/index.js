@@ -1,7 +1,6 @@
 import { useMutation } from "@apollo/client";
 import React, { useState } from "react";
 import Select from "react-select";
-import Base64 from "react-file-base64";
 import "../../styles/AddPet.css";
 import { ADD_PET } from "../../utils/mutations";
 import Auth from "../../utils/auth";
@@ -44,15 +43,18 @@ const AddPet = () => {
   });
 
   const [addPet, { error }] = useMutation(ADD_PET);
-  // const [uploadPic, { data, error: uploadErr }] = useMutation(UPLOAD_PIC);
 
+  // image upload related states
   const [selectedFile, selectFile] = useState();
   const [isFileSelected, setFileStatus] = useState("notSelected");
 
+  // save the target picture to state, flag selected
   const picChangeHandler = (e) => {
     selectFile(e.target.files[0]);
     setFileStatus("Selected");
   };
+
+  // upload picture to imgbb.com, save img url to pet data state
   const uploadPetPic = async (e) => {
     if (isFileSelected === "notSelected") {
       return alert(`File not Selected`);
@@ -64,14 +66,17 @@ const AddPet = () => {
 
     try {
       const req = await fetch(
-        `https://api.imgbb.com/1/upload?expiration=604800&name=${selectedFile.name}&key=dd9e796ad2397d60fca82af89819101b`,
+        `https://api.imgbb.com/1/upload?&name=${selectedFile.name}&key=dd9e796ad2397d60fca82af89819101b`,
         {
           method: "POST",
           body: body,
         }
       );
       const res = await req.json();
-      console.log(res);
+      const {
+        data: { image },
+      } = res;
+      setAddPetData({ ...addPetData, picture: image.url });
     } catch (err) {
       if (err) console.error(err);
     }
@@ -114,13 +119,6 @@ const AddPet = () => {
         <div>Pet Name:</div>
         <div value={addPetData.picture}>
           <input type={"file"} name={"petPic"} onChange={picChangeHandler} />
-          {/* <Base64
-            multiple={false}
-            onDone={(file) => {
-              selectFile(file);
-              picChangeHandler();
-            }}
-          /> */}
           <input
             type={"button"}
             name="uploadPic"

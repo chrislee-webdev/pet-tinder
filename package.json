@@ -23,9 +23,5 @@
   "homepage": "https://github.com/chrislee-webdev/pet-tinder#readme",
   "devDependencies": {
     "concurrently": "^7.3.0"
-  },
-  "dependencies": {
-    "form-data": "^4.0.0",
-    "react-file-base64": "^1.0.3"
   }
 }
