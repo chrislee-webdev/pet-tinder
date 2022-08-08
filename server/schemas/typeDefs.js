@@ -42,6 +42,17 @@ const typeDefs = gql`
     token: ID!
     user: User
   }
+  input Picture {
+    name: String
+    formData: String
+  }
+  type uploadedPic {
+    filename: String
+    name: String
+    mime: String
+    extention: String
+    url: String
+  }
   type Query {
     me: User
     user(username: String!): User
@@ -57,6 +68,7 @@ const typeDefs = gql`
     unlikePet(petId: String!, likedId: String!): Pet
     addPet(input: PetInput!): Pet
     removePet(petId: String!): User
+    uploadPic(input: Picture!): uploadedPic
   }
 `;
 
