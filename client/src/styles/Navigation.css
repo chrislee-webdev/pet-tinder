@@ -86,7 +86,7 @@
     width: 75%;
     display:inline-block;
     position:relative;
-    background-color:#070808;
+    background-color:rgb(238, 187, 105);
     border-radius: 25%;
     box-shadow: 2px 2px 2px #c90909;
     color:white;
@@ -108,6 +108,7 @@
 .btn:hover {
     background-image: linear-gradient(to right, rgb(235, 192, 21),rgb(238, 120, 16),rgb(216, 3, 3));
     color:black; 
+    text-decoration: underline;
     
 }
 

@@ -102,6 +102,15 @@ function Navigation({ currentPage, handlePageChange }) {
             >
               Find pet pal
             </Link>
+            </li>
+            <li className="mx-2 btn links">
+            <Link
+          to={"/contact"}
+          onClick={() => handlePageChange("Contact")}
+          className={currentPage === "Contact" ? "nav-link active" : "nav-link"}
+        >
+          Contact
+        </Link>
           </li>
         </ul>
       </nav>
