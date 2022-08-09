@@ -1,243 +1,159 @@
-.header{
-    padding:30px;
-    text-align:center;
-    background-image: linear-gradient(to right, rgb(216, 3, 3),rgb(238, 120, 16),rgb(235, 192, 21));
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-weight: bold;
-    font-size: 20px;
-
-}
-.webTitle {
-    color: white;
-    font-weight: bolder;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 40px;
+.navbar {
+  width: 100%;
+  height: 100px;
+  background: rgb(5, 57, 116);
+  border-bottom: 3px rgb(255, 101, 101) solid;
 }
 
-.link {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
+.nav-links {
+  margin: 30px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+}
+
+.navbar a {
+  margin-top: 30px;
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.toggleButton {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: 120px;
+}
+
+.toggleButton svg {
+  font-size: 50px;
+}
+
+.toggleButton button {
+  border-radius: 50%;
+  box-shadow: 0px -3px 30px rgb(255, 255, 255),
+    inset 0px -8px 20px rgb(-15, -15, -15);
+  border: 1px solid rgb(255, 255, 255);
+  display: inline-block;
+  width: 90px;
+  height: 90px;
+  color: rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  top: -50px;
+  right: 0;
+  width: 95px;
+  height: 95px;
+  margin-right: px;
+  cursor: pointer;
+  margin-top: -242px;
+  margin-right: 5px;
+}
+
+.links a {
+  padding: 0;
+  float: right;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 18px;
+  padding: 20px 30px;
+  display: inline-block;
+  transition: all 0.5s ease 0s;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: rgb(0, 65, 206);
+  margin-bottom: 50px;
+}
+@media only screen and (max-width: 1023px) {
+  .links a {
+    font-size: 1.5rem;
+    padding: 0;
+  }
+  .navbar .links a {
+    font-size: 1rem;
   }
 
-/* .aboutBtn {
-    width: 10%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position:relative;
-    background-color:#070808;
-    border-radius: 25%;
-    box-shadow: 2px 2px 2px #c90909;
-    color:white;
-    margin-right: 5%;
-    padding-top: 5px;
-    padding-bottom: 5px;
-} */
- /* .aboutBtn:hover {
-    background-color:#f0d19a;
-    color:black;
-    text-decoration: underline;
-} */
-/* .addPetBtn {
-    width: 15%;
-    display:inline-block;
-    position:relative;
-    background-color:#070808;
-    border-radius: 25%;
-    box-shadow: 2px 2px 2px #c90909;
-    color:white;
-    margin-right:5%;
-    padding-top: 5px;
-    padding-bottom: 5px;
-} */
- /* .addPetBtn:hover {
-    background-color:#f0d19a;
-    color:black;
-    text-decoration: underline;
-} */
+  .navbar .links {
+    margin-right: 200px;
+    padding: 0;
+    margin: 0;
+  }
 
-/* .findPetPalBtn {
-    width: 15%;
-    display:inline-block;
-    position:relative;
-    background-color:#070808;
-    border-radius: 25%;
-    box-shadow: 2px 2px 2px #c90909;
-    color:white;
-    padding-top: 5px;
-    padding-bottom: 5px;
-} */
- /* .findPetPalBtn:hover {
-    background-color:#f0d19a;
-    color:black;
-    text-decoration: underline;
-}
-.loginBtn:hover {
-    background-color:#f0d19a;
-    color:black;
-    text-decoration: underline;
-} */
-
-.btn {
-    width: 75%;
-    display:inline-block;
-    position:relative;
-    background-color:rgb(238, 187, 105);
-    border-radius: 25%;
-    box-shadow: 2px 2px 2px #c90909;
-    color:white;
-    margin-right:5%;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-.links {
+  .links a {
+    font-size: 1.2rem;
     width: 100%;
-    height: 100%;
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  .toggleButton {
+    display: relative;
+    float: inline-end;
+  }
+  #close a {
+    display: none;
+  }
+  .navbar a {
+    margin: 3px;
+  }
+  .links {
+    padding-top: 0px;
+  }
+  .links {
+    padding-top: 0px;
+    height: 10px;
+  }
+}
+
+@media only screen and (min-width: 1023px) {
+  .toggleButton {
+    display: none;
+  }
+
+  .hiddenLinks {
+    display: none;
+  }
+
+  #open {
+    height: 100px;
+  }
+
+  #open .links {
+    flex-direction: row;
+  }
+}
+@media only screen and (max-width: 1023px) {
+  #open {
+    height: 50vh;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .navbar {
+    padding-left: 0;
+  }
+
+  .links {
+    flex-direction: column;
+    font-display: cent;
+  }
+
+  .links a {
+    font-size: 1.2rem;
+    width: 100%;
+    margin: 2%;
+  }
+  .navbar .links {
+    margin-right: 0px;
+  }
+
+  .links {
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     text-align: center;
   }
-
-.btn:hover {
-    background-image: linear-gradient(to right, rgb(235, 192, 21),rgb(238, 120, 16),rgb(216, 3, 3));
-    color:black; 
-    text-decoration: underline;
-    
 }
-
-.toggleButton {
-    width: 100%;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding-top: 120px;
-  }
-  
-  .toggleButton svg {
-    font-size: 50px;
-  }
-  
-  .toggleButton button {
-    border-radius: 50%;
-    box-shadow: 0px -3px 30px rgb(255, 255, 255),
-      inset 0px -8px 20px rgb(-15, -15, -15);
-    border: 1px solid rgb(255, 255, 255);
-    display: inline-block;
-    width: 90px;
-    height: 90px;
-    color: rgb(0, 0, 0);
-    color: rgb(0, 0, 0);
-    cursor: pointer;
-    top: -50px;
-    right: 0;
-    width: 95px;
-    height: 95px;
-    margin-right: px;
-    cursor: pointer;
-    margin-top: -242px;
-    margin-right: 5px;
-  }
-
-  .nav-link {
-    transition: 0.5s;
-    align-content: center;
-  }
-  
-  .navbar a {
-    color: white;
-    text-decoration: none;
-    margin: 30px;
-    font-size: 25px;
-  }
-
-
-@media only screen and (max-width: 1024px) {
-    .links a {
-      font-size: 1.5rem;
-      padding: 0;
-    }
-    .navbar .links a {
-      font-size: 1rem;
-    }
-  
-    .navbar .links {
-      margin-right: 200px;
-      padding: 0;
-      margin: 0;
-    }
-  
-    .links a {
-      font-size: 1.2rem;
-      width: 100%;
-    }
-  }
-  
-  @media only screen and (max-width: 1024px) {
-    .toggleButton {
-      display: relative;
-      float: inline-end;
-    }
-    #close a {
-      display: none;
-    }
-    .navbar a {
-      margin: 3px;
-    }
-    .links {
-      padding-top: 0px;
-    }
-    .links {
-      padding-top: 0px;
-      height: 10%;
-    }
-  }
-  
-  @media only screen and (min-width: 1024px) {
-    .toggleButton {
-      display: none;
-    }
-  
-    .hiddenLinks {
-      display: none;
-    }
-  
-    #open {
-      height: 100px;
-    }
-  
-    #open .links {
-      flex-direction: row;
-    }
-  }
-  @media only screen and (max-width: 1024px) {
-    #open {
-      height: 50vh;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .navbar {
-      padding-left: 0;
-    }
-  
-    .links {
-      flex-direction: column;
-      font-display: cent;
-    }
-  
-    .links a {
-      font-size: 1.2rem;
-      width: 100%;
-      margin: 2%;
-    }
-    .navbar .links {
-      margin-right: 0px;
-    }
-  }
