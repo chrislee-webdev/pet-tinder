@@ -24,13 +24,22 @@
 
 .pupImg{
     width:400px;
+    border-radius:8px;
+    margin-right: 30px;
+    margin-bottom: 30px;
     
 }
 
 .dalmImg{
     width:400px;
+    border-radius: 8px;
+    margin-right: 30px;
+    margin-bottom: 30px;
 }
 
 .frenchImg{
-    width:400px
+    width:400px;
+    border-radius: 8px;
+    margin-right: 30px;
+    margin-bottom: 30px;
 }
