@@ -6,40 +6,66 @@ import { ADD_PET } from "../../utils/mutations";
 import Auth from "../../utils/auth";
 
 const Age = [
-  { label: "0 - 1", value: 1 },
-  { label: "1 - 3", value: 2 },
-  { label: "3 - 5", value: 3 },
-  { label: "5 - 7", value: 4 },
-  { label: "8+", value: 5 },
+  { label: "0 - 1", name: "age" },
+  { label: "1 - 3", name: "age" },
+  { label: "3 - 5", name: "age" },
+  { label: "5 - 7", name: "age" },
+  { label: "8+", name: "age" },
 ];
 
 const Gender = [
-  { label: "Male", value: 1 },
-  { label: "Female", value: 2 },
+  { label: "Male", name: "gender" },
+  { label: "Female", name: "gender" },
 ];
 
 const Temper = [
-  { label: "Happy", value: 1 },
-  { label: "Eager to please", value: 2 },
-  { label: "Friendly", value: 3 },
-  { label: "Excellent family dog", value: 4 },
-  { label: "Stubborn", value: 5 },
+  { label: "Happy", name: "temperment" },
+  { label: "Eager to please", name: "temperment" },
+  { label: "Friendly", name: "temperment" },
+  { label: "Excellent family dog", name: "temperment" },
+  { label: "Stubborn", name: "temperment" },
 ];
 
 const Breed = [
-  { label: "French Bulldog", value: 1 },
-  { label: "Golden Retriever", value: 2 },
-  { label: "Shiba Inu", value: 3 },
-  { label: "Poodle", value: 4 },
-  { label: "Samoyed", value: 5 },
+  { label: "French Bulldog", name: "breed" },
+  { label: "Golden Retriever", name: "breed" },
+  { label: "Shiba Inu", name: "breed" },
+  { label: "Poodle", name: "breed" },
+  { label: "Samoyed", name: "breed" },
 ];
+
+const coat = [
+  { label: "Long", name: "coat" },
+  { label: "Short", name: "coat" },
+  { label: "Medium", name: "coat" },
+  { label: "Double Coat", name: "coat" },
+  { label: "Curly", name: "coat" },
+  { label: "Wire", name: "coat" },
+  { label: "Silky", name: "coat" },
+  { label: "Hairless", name: "coat" },
+];
+
+const color = [
+  { label: "Black", name: "color" },
+  { label: "White", name: "color" },
+  { label: "Blonde", name: "color" },
+  { label: "Brown", name: "color" },
+  { label: "Grey", name: "color" },
+];
+
 const AddPet = () => {
   const [addPetData, setAddPetData] = useState({
+    name: "",
     age: "",
     gender: "",
-    temper: "",
     breed: "",
     picture: "",
+    temperment: "",
+    coat: "",
+    color: "",
+    allergies: "",
+    disabilities: "",
+    funFact: "",
   });
 
   const [addPet, { error }] = useMutation(ADD_PET);
@@ -82,11 +108,12 @@ const AddPet = () => {
     }
   };
 
-  const handleChange = async (event) => {
-    const { name, value } = event.target;
+  const handleChange = async (option) => {
+    const { name, value, label } = option;
+    console.log(`${name} ${value} ${label}`);
     setAddPetData({
       ...addPetData,
-      [name]: value,
+      [name]: label,
     });
   };
 
@@ -96,7 +123,7 @@ const AddPet = () => {
 
     try {
       const { data } = await addPet({
-        variables: { ...addPetData },
+        variables: { input: { ...addPetData } },
       });
       console.log(data);
       Auth.login(data.addPet.token);
@@ -104,19 +131,36 @@ const AddPet = () => {
       console.error(e);
     }
     setAddPetData({
+      name: "",
       age: "",
       gender: "",
-      temper: "",
       breed: "",
       picture: "",
+      temperment: "",
+      coat: "",
+      color: "",
+      allergies: "",
+      disabilities: "",
+      funFact: "",
     });
   };
+
+  console.log(addPetData);
 
   return (
     <section className="addPetContainer">
       <h1>Create a pet profile</h1>
       <form onSubmit={handleFormSubmit}>
-        <div>Pet Name:</div>
+        <div>
+          Pet Name:{" "}
+          <input
+            type={"text"}
+            name="name"
+            onChange={(e) =>
+              setAddPetData({ ...addPetData, [e.target.name]: e.target.value })
+            }
+          />
+        </div>
         <div value={addPetData.picture}>
           <input type={"file"} name={"petPic"} onChange={picChangeHandler} />
           <input
@@ -126,21 +170,84 @@ const AddPet = () => {
             value="Upload"
           />
         </div>
-        <div value={addPetData.breed} onChange={handleChange}>
-          Breed: <Select options={Breed} />
+        <div value={addPetData.breed}>
+          Breed:{" "}
+          <Select options={Breed} onChange={(option) => handleChange(option)} />
         </div>
 
-        <div value={addPetData.gender} onChange={handleChange}>
-          Gender: <Select options={Gender} />
+        <div value={addPetData.gender}>
+          Gender:{" "}
+          <Select
+            options={Gender}
+            onChange={(option) => handleChange(option)}
+          />
         </div>
 
-        <div value={addPetData.age} onChange={handleChange}>
-          Age: <Select options={Age} />
+        <div value={addPetData.age}>
+          Age:{" "}
+          <Select options={Age} onChange={(option) => handleChange(option)} />
         </div>
 
-        <div value={addPetData.temper} onChange={handleChange}>
-          Temperament: <Select options={Temper} />
+        <div value={addPetData.temper}>
+          Temperament:{" "}
+          <Select
+            options={Temper}
+            onChange={(e, option) => handleChange(e, option)}
+          />
         </div>
+
+        <div>
+          Coat:{" "}
+          <Select
+            options={coat}
+            onChange={(e, option) => handleChange(e, option)}
+          />
+        </div>
+
+        <div>
+          Color:{" "}
+          <Select
+            options={color}
+            onChange={(e, option) => handleChange(e, option)}
+          />
+        </div>
+
+        <div>
+          Allergies:{" "}
+          <input
+            type={"text"}
+            name={"allergies"}
+            value={addPetData.allergies}
+            onChange={(e) =>
+              setAddPetData({ ...addPetData, [e.target.name]: e.target.value })
+            }
+          />
+        </div>
+
+        <div>
+          Disabilities:{" "}
+          <input
+            type={"text"}
+            name={"disabilities"}
+            value={addPetData.diabilities}
+            onChange={(e) =>
+              setAddPetData({ ...addPetData, [e.target.name]: e.target.value })
+            }
+          />
+        </div>
+
+        <div>
+          Fun Fact:{" "}
+          <input
+            type={"text"}
+            name={"funFact"}
+            value={addPetData.funFact}
+            onChange={(e) =>
+              setAddPetData({ ...addPetData, [e.target.name]: e.target.value })
+            }
+          />
+        </div>
+
         <button className="btn" type="submit">
           Submit
         </button>
