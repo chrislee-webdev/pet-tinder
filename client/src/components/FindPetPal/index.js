@@ -86,6 +86,19 @@ function FindPetPal() {
     <button>Like</button> <button>Pass</button>
     </div>
 
+    <div>
+    <img className='pupImg' src={require('../../assets/shiba-inu.jpeg')}
+    alt="frenchie"
+    />
+     <ul>
+      <li>Name: Mochi</li>
+      <li>Age: 3 years</li>
+      <li>Breed: Shiba Inu</li>
+      <li>Temperament: Stubborn</li>
+    </ul>
+    <button>Like</button> <button>Pass</button>
+    </div>
+
       {/* <img src={require("../../assets/pals.jpeg")} alt="puppies" /> */}
       <div className="cardContainer"></div>
       {lastDirection ? (
