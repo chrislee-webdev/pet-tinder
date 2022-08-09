@@ -28,7 +28,9 @@ On the website you can login, add a pet, find other pets, and view your matches.
 - NodeJS
 - Express
 
-# Preview
+## Preview
+
+![image](./public/src/assets/PetTinder.png)
 
 # Links
 
