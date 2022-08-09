@@ -85,7 +85,6 @@ const AddPet = () => {
     if (isFileSelected === "notSelected") {
       return alert(`File not Selected`);
     }
-    console.log(selectedFile);
 
     const body = new FormData();
     body.append("image", selectedFile);
@@ -110,7 +109,6 @@ const AddPet = () => {
 
   const handleChange = async (option) => {
     const { name, value, label } = option;
-    console.log(`${name} ${value} ${label}`);
     setAddPetData({
       ...addPetData,
       [name]: label,
@@ -125,7 +123,6 @@ const AddPet = () => {
       const { data } = await addPet({
         variables: { input: { ...addPetData } },
       });
-      console.log(data);
       Auth.login(data.addPet.token);
     } catch (e) {
       console.error(e);
@@ -144,8 +141,6 @@ const AddPet = () => {
       funFact: "",
     });
   };
-
-  console.log(addPetData);
 
   return (
     <section className="addPetContainer">
