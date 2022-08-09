@@ -1,13 +1,14 @@
-.form_container {
+.contact-us-form_container {
   margin: 40px;
   margin-bottom: 2%;
   /* Setup */
   position: relative;
   padding-bottom: 200px;
   background-color: rgb(235, 235, 235);
+  text-align: center;
 }
 
-form {
+.contact-us-form_container form {
   width: 400px;
   background-color: rgb(255, 255, 255);
   /* Center horizontally*/
@@ -22,7 +23,7 @@ form {
   margin-bottom: 3px;
 }
 
-.contact-form input {
+.contact-us-contact-form input {
   border: 1px solid rgb(202, 191, 191);
   width: 100%;
   height: 20px;
@@ -31,7 +32,7 @@ form {
   border-radius: 4px;
 }
 
-input[type="submit"] {
+.contact-us-form_container input[type="submit"] {
   height: 35px;
   margin-top: 2rem;
   cursor: pointer;
@@ -46,11 +47,11 @@ input[type="submit"] {
   border-radius: 20px;
 }
 
-input[type="submit"]:hover {
+.contact-us-form_container input[type="submit"]:hover {
   background-color: #074f86;
 }
 
-textarea {
+.contact-us-form_container textarea {
   max-width: 100%;
   min-width: 100%;
   width: 100%;
@@ -59,28 +60,33 @@ textarea {
   outline: none;
 }
 
-label {
+.contact-us-form_container label {
   margin-top: 1rem;
 }
 
 @media (max-width: 768px) {
-  .form_container {
+  .contact-us-form_container {
+    width: 100%;
+    text-align: center;
     margin: 0;
   }
-
-  form {
-    display: flex;
+  .contact-us-form_container form {
     flex-direction: column;
     font-size: 16px;
     margin-bottom: 5%;
   }
 
-  input[type="submit"] {
+  .contact-us-form_container input[type="submit"] {
     width: 100%;
     margin-left: 0px;
   }
 
-  .form_container h1 {
+  .contact-us-form_container h1 {
     font-size: 1.5rem;
+  }
+
+  .contact-us-form_container form {
+    width: 80%;
+    background-color: rgb(255, 255, 255);
   }
 }

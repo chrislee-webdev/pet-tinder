@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_USER, LOGIN_USER } from "../../utils/mutations";
 import auth from "../../utils/auth";
-import  '../../styles/Login.css';
-
+import "../../styles/Login.css";
 
 export default function LoginPage() {
   const [
@@ -141,7 +140,7 @@ export default function LoginPage() {
     }
   };
   return (
-    <section>
+    <section id="login-signup-form_container">
       <h2 className="login">Login</h2>
       <form className="loginContainer" onSubmit={handleLoginSubmit}>
         <div>
