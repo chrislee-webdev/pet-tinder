@@ -162,9 +162,9 @@ const AddPet = () => {
           />
         </div>
         <div value={addPetData.picture}>
-          <input  type={"file"} name={"petPic"} onChange={picChangeHandler} />
+          <input type={"file"} name={"petPic"} onChange={picChangeHandler} />
           <input
-          className="uploadBtn"
+            className="uploadBtn"
             type={"button"}
             name="uploadPic"
             onClick={uploadPetPic}
