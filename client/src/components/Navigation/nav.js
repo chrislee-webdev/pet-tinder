@@ -4,7 +4,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import auth from "../../utils/auth";
-import styles from "../../styles/Navigation.css";
+import '../../styles/Navigation.css';
+
 
 // Navigation function
 function Navigation({ currentPage, handlePageChange }) {
