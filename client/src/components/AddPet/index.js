@@ -147,7 +147,7 @@ const AddPet = () => {
     <section className="addPetContainer">
       <h1>Create a pet profile</h1>
       <form onSubmit={handleFormSubmit}>
-       <div>
+       <div className="input">
           Pet Name:{" "}
           <input
             type={"text"}
@@ -156,8 +156,8 @@ const AddPet = () => {
               setAddPetData({ ...addPetData, [e.target.name]: e.target.value })
             }
           />
-        </div>
-        <div value={addPetData.picture}>
+        </div >
+        <div className="input" value={addPetData.picture}>
           <input type={"file"} name={"petPic"} onChange={picChangeHandler} />
           <input
             className="uploadBtn"
@@ -167,12 +167,12 @@ const AddPet = () => {
             value="Upload"
           />
         </div>
-        <div value={addPetData.breed}>
+        <div className="input" value={addPetData.breed}>
           Breed:{" "}
           <Select options={Breed} onChange={(option) => handleChange(option)} />
         </div>
 
-        <div value={addPetData.gender}>
+        <div className="input" value={addPetData.gender}>
           Gender:{" "}
           <Select
             options={Gender}
@@ -180,12 +180,12 @@ const AddPet = () => {
           />
         </div>
 
-        <div value={addPetData.age}>
+        <div className="input" value={addPetData.age}>
           Age:{" "}
           <Select options={Age} onChange={(option) => handleChange(option)} />
         </div>
 
-        <div value={addPetData.temper}>
+        <div className="input" value={addPetData.temper}>
           Temperament:{" "}
           <Select
             options={Temper}
@@ -193,7 +193,7 @@ const AddPet = () => {
           />
         </div>
 
-        <div>
+        <div className="input" >
           Coat:{" "}
           <Select
             options={coat}
@@ -201,7 +201,7 @@ const AddPet = () => {
           />
         </div>
 
-        <div>
+        <div className="input">
           Color:{" "}
           <Select
             options={color}
@@ -209,7 +209,7 @@ const AddPet = () => {
           />
         </div>
 
-        <div>
+        <div className="input">
           Allergies:{" "}
           <input
             type={"text"}
@@ -221,7 +221,7 @@ const AddPet = () => {
           />
         </div>
 
-        <div>
+        <div className="input">
           Disabilities:{" "}
           <input
             type={"text"}
@@ -233,7 +233,7 @@ const AddPet = () => {
           />
         </div>
 
-        <div>
+        <div className="input">
           Fun Fact:{" "}
           <input
             type={"text"}

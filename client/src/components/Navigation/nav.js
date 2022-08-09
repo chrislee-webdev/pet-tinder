@@ -1,21 +1,38 @@
 // Navigation Component
 
 // import React
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import auth from "../../utils/auth";
 import '../../styles/Navigation.css';
-
+import { GiHamburgerMenu } from "react-icons/gi";
 
 // Navigation function
 function Navigation({ currentPage, handlePageChange }) {
+
+  const [expandNavbar, setExpandNavbar] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    setExpandNavbar(false);
+  }, [location]);
+
   return (
     <header className="header">
       <h1 className="webTitle">Pinder: Puppy Love!</h1>
-
-      <nav>
+      <div className="navbar" id={expandNavbar ? "open" : "close"}>
+      <div className="toggleButton">
+        <button
+          onClick={() => {
+            setExpandNavbar((prev) => !prev);
+          }}
+        >
+          <GiHamburgerMenu />
+        </button>
+      </div></div>
+      <nav className="links">
         <ul>
-          <li className="mx-2 loginBtn">
+          <li className="mx-2 btn links">
             {auth.loggedIn() ? (
               <Link
                 to={"/"}
@@ -38,7 +55,7 @@ function Navigation({ currentPage, handlePageChange }) {
               </Link>
             )}{" "}
           </li>
-          <li className="mx-2 aboutBtn">
+          <li className="mx-2 btn links">
             <Link
               to={"/"}
               onClick={() => handlePageChange("About")}
@@ -50,7 +67,7 @@ function Navigation({ currentPage, handlePageChange }) {
             </Link>
           </li>
           {auth.loggedIn() && (
-            <li className="mx-2 addPetBtn">
+            <li className="mx-2 btn links">
               <Link
                 to={"/add-pet"}
                 onClick={() => handlePageChange("AddPet")}
@@ -63,7 +80,7 @@ function Navigation({ currentPage, handlePageChange }) {
             </li>
           )}{" "}
           {auth.loggedIn() && (
-            <li className="mx-2 loginBtn">
+            <li className="mx-2 btn links">
               <Link
                 to={"/my-likes"}
                 onClick={() => handlePageChange("MyLikes")}
@@ -75,7 +92,7 @@ function Navigation({ currentPage, handlePageChange }) {
               </Link>
             </li>
           )}{" "}
-          <li className="mx-2 findPetPalBtn">
+          <li className="mx-2 btn links">
             <Link
               to={"find-pet-pal"}
               onClick={() => handlePageChange("FindPetPal")}
