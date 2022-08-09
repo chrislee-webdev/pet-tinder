@@ -118,8 +118,9 @@ const AddPet = () => {
       <form onSubmit={handleFormSubmit}>
         <div>Pet Name:</div>
         <div value={addPetData.picture}>
-          <input type={"file"} name={"petPic"} onChange={picChangeHandler} />
+          <input  type={"file"} name={"petPic"} onChange={picChangeHandler} />
           <input
+          className="uploadBtn"
             type={"button"}
             name="uploadPic"
             onClick={uploadPetPic}

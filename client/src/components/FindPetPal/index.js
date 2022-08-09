@@ -28,14 +28,14 @@ function FindPetPal() {
   const { me } = userData;
   const { pets } = petData;
 
-  const swipe = (direction, nameToDelete) => {
-    console.log("removing: " + nameToDelete);
-    setLastDirection(direction);
-  };
+  // const swipe = (direction, nameToDelete) => {
+  //   console.log("removing: " + nameToDelete);
+  //   setLastDirection(direction);
+  // };
 
-  const outOfFrame = (name) => {
-    console.log(name + "left the screen!");
-  };
+  // const outOfFrame = (name) => {
+  //   console.log(name + "left the screen!");
+  // };
 
   return (
     <section className="findPetContainer">

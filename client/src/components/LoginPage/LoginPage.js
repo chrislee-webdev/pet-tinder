@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_USER, LOGIN_USER } from "../../utils/mutations";
 import auth from "../../utils/auth";
-import styles from '../../styles/Login.css';
+import  '../../styles/Login.css';
 
 export default function LoginPage() {
   const [
