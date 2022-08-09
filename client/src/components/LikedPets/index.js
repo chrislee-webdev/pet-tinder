@@ -80,9 +80,11 @@ export function LikedPets() {
       const {
         data: { findMatch },
       } = await getMatches({ variables: { petId: petId } });
-      console.log(findMatch);
-      const match = findMatch.filter((user) => user.pets.includes(matchId));
-      console.log(match);
+      const match = findMatch.find((user) =>
+        user.pets.some((pet) => pet._id === matchId)
+      );
+
+      e.target.innerHTML = `<a href="mailto:${match.email}">Click to start an email</a>`;
     } catch (err) {
       if (err) throw err;
     }

@@ -17,22 +17,21 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_PET = gql`
-  mutation addPet($input: PetInput!) {
-    addPet(input: $PetInput) {
-      PetInput {
-        _id
-        name
-        picture
-        age
-        breed
-        gender
-        coat
-        color
-        temperment
-        funFact
-        disabilities
-        allergies
-      }
+  mutation AddPet($input: PetInput!) {
+    addPet(input: $input) {
+      _id
+      name
+      picture
+      age
+      breed
+      gender
+      coat
+      color
+      temperment
+      funFact
+      disabilities
+      allergies
+      likes
     }
   }
 `;
