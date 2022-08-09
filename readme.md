@@ -6,6 +6,7 @@ On the website you can login, add a pet, find other pets, and view your matches.
 # Table of Contents
 * [Description](#Description)
 * [Installation](#Installation)
+* [Technologies](#Technologies)
 * [Preview](#Preview)
 * [Links](#Links)
 * [Contributors](#contributors)
@@ -16,6 +17,16 @@ On the website you can login, add a pet, find other pets, and view your matches.
 - npm start -- starts server.js
 - npm run develop -- starts server.js in watch mode and starts local REACT dev server
 - npm build -- builds production REACT site
+
+# Technologies
+- React
+- MongoDB
+- CSS
+- Javascript
+- GraphQL-Apollo
+- Jwt
+- NodeJS
+- Express
 
 # Preview
 

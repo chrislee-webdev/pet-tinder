@@ -40,6 +40,7 @@ const AddPet = () => {
     temper: "",
     breed: "",
     picture: "",
+    name: "",
   });
 
   const [addPet, { error }] = useMutation(ADD_PET);
@@ -109,6 +110,7 @@ const AddPet = () => {
       temper: "",
       breed: "",
       picture: "",
+      name: "",
     });
   };
 
@@ -116,9 +118,10 @@ const AddPet = () => {
     <section className="addPetContainer">
       <h1>Create a pet profile</h1>
       <form onSubmit={handleFormSubmit}>
-        <div>Pet Name:</div>
+      <label value={addPetData.name} id="petName">Pet Name:</label>
+        <input type={"text"} onChange={handleChange} for="petName"></input>
         <div value={addPetData.picture}>
-          <input  type={"file"} name={"petPic"} onChange={picChangeHandler} />
+          <input type={"file"} name={"petPic"} onChange={picChangeHandler} />
           <input
           className="uploadBtn"
             type={"button"}
