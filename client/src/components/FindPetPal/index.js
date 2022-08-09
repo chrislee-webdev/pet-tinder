@@ -76,7 +76,7 @@ function FindPetPal() {
       <li>Name: Spudz McKenzie</li>
       <li>Age: 3 years</li>
       <li>Breed: French Bulldog</li>
-      <li>Temperment: Stubborn</li>
+      <li>Temperament: Stubborn</li>
     </ul>
     <img className='pupImg' src={require('../../assets/frenchie.jpg')}
     alt="frenchie"
