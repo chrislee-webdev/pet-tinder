@@ -4,10 +4,12 @@ import AddPet from "../AddPet";
 import FindPetPal from "../FindPetPal";
 import About from "../About";
 import Footer from "../Footer";
+import Contact from "../Contact";
 import { LikedPets } from "../LikedPets";
 import LoginPage from "../LoginPage/LoginPage";
 import auth from "../../utils/auth";
 import { Navigate, Route, Routes } from "react-router-dom";
+import "../../styles/Title.css";
 
 export default function PortfolioContainer() {
   const [currentPage, setCurrentPage] = useState("About");
@@ -24,6 +26,9 @@ export default function PortfolioContainer() {
     }
     if (currentPage === "Login") {
       return <LoginPage />;
+    }
+    if (currentPage === "Contact") {
+      return <Contact />;
     }
   };
 
@@ -49,6 +54,7 @@ export default function PortfolioContainer() {
           }
         />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       <footer>
         <Footer></Footer>
