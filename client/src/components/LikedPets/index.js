@@ -93,7 +93,7 @@ export function LikedPets() {
   return (
     <section>
       <div>
-        <h2>Matches</h2>
+        <h2 className='likedText'>Matches</h2>
         {me.pets.map((yourPet) => (
           <ol>
             {likesMe
@@ -115,7 +115,7 @@ export function LikedPets() {
       </div>
 
       <div>
-        <h2>Click your pet to see who you've liked</h2>
+        <h2 className='likedText'>Click your pet to see who you've liked</h2>
         {me.pets.map((yourPet) => (
           <ol key={yourPet._id}>
             <h3
@@ -161,12 +161,12 @@ export function LikedPets() {
       </div>
 
       {likesMe.length === 0 ? (
-        <h2>No Likes Yet</h2>
+        <h2 className='likedText'>No Likes Yet</h2>
       ) : (
         <div>
           {me.pets.map((yourPet) => (
             <>
-              <h3 key={yourPet._id + "title"}>
+              <h3 className='likedText' key={yourPet._id + "title"}>
                 {yourPet.name} was liked by...
               </h3>
               {likesMe?.map((theirPet) => (
