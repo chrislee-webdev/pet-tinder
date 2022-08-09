@@ -14,24 +14,24 @@ const Age = [
 ];
 
 const Gender = [
-  { label: "Male", value: 1 },
-  { label: "Female", value: 2 },
+  { label: "Male", value: 1, name: "Gender" },
+  { label: "Female", value: 2, name: "Gender" },
 ];
 
 const Temper = [
-  { label: "Happy", value: 1 },
-  { label: "Eager to please", value: 2 },
-  { label: "Friendly", value: 3 },
-  { label: "Excellent family dog", value: 4 },
-  { label: "Stubborn", value: 5 },
+  { label: "Happy", value: 1, name: "Temperment" },
+  { label: "Eager to please", value: 2, name: "Temperment" },
+  { label: "Friendly", value: 3, name: "Temperment" },
+  { label: "Excellent family dog", value: 4, name: "Temperment" },
+  { label: "Stubborn", value: 5, name: "Temperment" },
 ];
 
 const Breed = [
-  { label: "French Bulldog", value: 1 },
-  { label: "Golden Retriever", value: 2 },
-  { label: "Shiba Inu", value: 3 },
-  { label: "Poodle", value: 4 },
-  { label: "Samoyed", value: 5 },
+  { label: "French Bulldog", value: 1, name: "Breed" },
+  { label: "Golden Retriever", value: 2, name: "Breed" },
+  { label: "Shiba Inu", value: 3, name: "Breed" },
+  { label: "Poodle", value: 4, name: "Breed" },
+  { label: "Samoyed", value: 5, name: "Breed" },
 ];
 const AddPet = () => {
   const [addPetData, setAddPetData] = useState({
@@ -82,11 +82,12 @@ const AddPet = () => {
     }
   };
 
-  const handleChange = async (event) => {
-    const { name, value } = event.target;
+  const handleChange = async (option) => {
+    const { name, value, label } = option;
+    console.log(`${name} ${value} ${label}`);
     setAddPetData({
       ...addPetData,
-      [name]: value,
+      [name]: label,
     });
   };
 
@@ -126,20 +127,30 @@ const AddPet = () => {
             value="Upload"
           />
         </div>
-        <div value={addPetData.breed} onChange={handleChange}>
-          Breed: <Select options={Breed} />
+        <div value={addPetData.breed}>
+          Breed:{" "}
+          <Select options={Breed} onChange={(option) => handleChange(option)} />
         </div>
 
-        <div value={addPetData.gender} onChange={handleChange}>
-          Gender: <Select options={Gender} />
+        <div value={addPetData.gender}>
+          Gender:{" "}
+          <Select
+            options={Gender}
+            onChange={(option) => handleChange(option)}
+          />
         </div>
 
-        <div value={addPetData.age} onChange={handleChange}>
-          Age: <Select options={Age} />
+        <div value={addPetData.age}>
+          Age:{" "}
+          <Select options={Age} onChange={(option) => handleChange(option)} />
         </div>
 
-        <div value={addPetData.temper} onChange={handleChange}>
-          Temperament: <Select options={Temper} />
+        <div value={addPetData.temper}>
+          Temperament:{" "}
+          <Select
+            options={Temper}
+            onChange={(e, option) => handleChange(e, option)}
+          />
         </div>
         <button className="btn" type="submit">
           Submit
