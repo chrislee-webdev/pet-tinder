@@ -1,5 +1,6 @@
-.addPetContainer{
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+.addPetContainer {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
   width: 600px;
   background-color: rgb(242, 238, 233);
   /* Center horizontally*/
@@ -24,19 +25,18 @@
   position: relative;
   padding-bottom: 200px;
   text-align: center;
-  overflow: scroll;
 }
 
 /* form {
   width: 400px; */
-  /* background-color: rgb(0, 174, 255); */
-  /* margin: 0 auto;
+/* background-color: rgb(0, 174, 255); */
+/* margin: 0 auto;
   padding: 0 20px 0 20px;
   transform: translate(0, 5%);
   border-radius: 5px;
   border: 1px solid rgb(220, 220, 220); */
-  /* box-shadow: 0px 0px 300px rgb(255 255 255), inset 0px 180px 200px rgb(0 0 0); */
-  /* border: 1px solid rgb(255, 255, 255);
+/* box-shadow: 0px 0px 300px rgb(255 255 255), inset 0px 180px 200px rgb(0 0 0); */
+/* border: 1px solid rgb(255, 255, 255);
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -98,8 +98,13 @@ label {
 }
 
 .uploadBtn:hover {
-  background-image: linear-gradient(to right, rgb(235, 192, 21),rgb(238, 120, 16),rgb(216, 3, 3));
-  color:black; 
+  background-image: linear-gradient(
+    to right,
+    rgb(235, 192, 21),
+    rgb(238, 120, 16),
+    rgb(216, 3, 3)
+  );
+  color: black;
   text-decoration: underline;
 }
 
