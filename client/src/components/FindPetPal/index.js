@@ -57,9 +57,11 @@ function FindPetPal() {
     <img className='pupImg'src={require('../../assets/pals.jpeg')}
         alt="puppies"
     />
+    <button>Like</button> <button>Pass</button>
     </div>
 
     <div>
+    <button>Like</button> <button>Pass</button>
     <img className='pupImg'src={require('../../assets/dalmatian.jpeg')}
     alt="dalmatian"
     />
@@ -81,6 +83,7 @@ function FindPetPal() {
     <img className='pupImg' src={require('../../assets/frenchie.jpg')}
     alt="frenchie"
     />
+    <button>Like</button> <button>Pass</button>
     </div>
 
       {/* <img src={require("../../assets/pals.jpeg")} alt="puppies" /> */}
