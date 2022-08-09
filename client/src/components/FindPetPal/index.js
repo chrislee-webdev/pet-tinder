@@ -69,6 +69,7 @@ function FindPetPal() {
         <h2 className="infoText" />
       )}
     </section>
+    
   );
 }
 //TODO: add pass and like buttons
