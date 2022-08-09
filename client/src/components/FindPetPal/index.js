@@ -46,22 +46,44 @@ function FindPetPal() {
   return (
     <section className='findPetContainer'>
     <h1 className='findText'>Find a pal for your pet!</h1>
+
     <div>
+      <ul>
+        <li>Name: Bowie</li>
+        <li>Age: 3 years</li>
+        <li>Breed: Golden Retriever</li>
+        <li>Temperament: Happy</li>
+      </ul>
     <img className='pupImg'src={require('../../assets/pals.jpeg')}
         alt="puppies"
     />
     </div>
+
     <div>
     <img className='pupImg'src={require('../../assets/dalmatian.jpeg')}
     alt="dalmatian"
     />
+    <ul>
+      <li>Name: Dottie</li>
+      <li>Age: 2 years</li>
+      <li>Breed: Dalmation</li>
+      <li>Temperament: Excellent family dog</li>
+    </ul>
     </div>
+
     <div>
+    <ul>
+      <li>Name: Spudz McKenzie</li>
+      <li>Age: 3 years</li>
+      <li>Breed: French Bulldog</li>
+      <li>Temperment: Stubborn</li>
+    </ul>
     <img className='pupImg' src={require('../../assets/frenchie.jpg')}
     alt="frenchie"
     />
     </div>
-      <img src={require("../../assets/pals.jpeg")} alt="puppies" />
+
+      {/* <img src={require("../../assets/pals.jpeg")} alt="puppies" /> */}
       <div className="cardContainer"></div>
       {lastDirection ? (
         <h2 className="infoText">You swiped {lastDirection}</h2>
