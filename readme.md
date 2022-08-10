@@ -35,7 +35,7 @@ Pet Pal is a full-stack web application that allows pet parents to find new pals
 # Links
 
 - [Github Repo](https://github.com/chrislee-webdev/pet-tinder)
-- [Heroku]()
+- [Heroku](https://pet-pal-friend-finder.herokuapp.com/)
 
 # Contributors
 - Abyou Geletu [Github](https://github.com/ghashe)
