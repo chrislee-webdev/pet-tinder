@@ -20,7 +20,7 @@ function Title() {
     <div className="cont ">
     
       <div id="title">
-        <h1 className="webTitle">Pinder: Puppy Love!</h1>
+        <h1 className="webTitle">Pet Pals</h1>
       </div>
 
     </div>
