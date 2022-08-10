@@ -30,7 +30,7 @@ Pet Pal is a full-stack web application that allows pet parents to find new pals
 
 ## Preview
 
-![image](./public/src/assets/PetTinder.png)
+![image](../../assets/petpal.png)
 
 # Links
 
