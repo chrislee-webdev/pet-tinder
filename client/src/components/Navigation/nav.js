@@ -1,19 +1,38 @@
 // Navigation Component
 
 // import React
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import auth from "../../utils/auth";
+import '../../styles/Navigation.css';
+import { GiHamburgerMenu } from "react-icons/gi";
 
 // Navigation function
 function Navigation({ currentPage, handlePageChange }) {
-  return (
-    <header>
-      <h1>Pet Tinder</h1>
 
-      <nav>
+  const [expandNavbar, setExpandNavbar] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    setExpandNavbar(false);
+  }, [location]);
+
+  return (
+    <header className="header">
+      <h1 className="webTitle">Pinder: Puppy Love!</h1>
+      <div className="navbar" id={expandNavbar ? "open" : "close"}>
+      <div className="toggleButton">
+        <button
+          onClick={() => {
+            setExpandNavbar((prev) => !prev);
+          }}
+        >
+          <GiHamburgerMenu />
+        </button>
+      </div></div>
+      <nav className="links">
         <ul>
-          <li className="mx-2">
+          <li className="mx-2 btn links">
             {auth.loggedIn() ? (
               <Link
                 to={"/"}
@@ -36,8 +55,7 @@ function Navigation({ currentPage, handlePageChange }) {
               </Link>
             )}{" "}
           </li>
-
-          <li className="mx-2">
+          <li className="mx-2 btn links">
             <Link
               to={"/"}
               onClick={() => handlePageChange("About")}
@@ -48,20 +66,33 @@ function Navigation({ currentPage, handlePageChange }) {
               Homepage
             </Link>
           </li>
-
-          <li className="mx-2">
-            <Link
-              to={"/add-pet"}
-              onClick={() => handlePageChange("AddPet")}
-              className={
-                currentPage === "AddPet" ? "nav-link active" : "nav-link"
-              }
-            >
-              Add a pet
-            </Link>
-          </li>
-
-          <li className="mx-2">
+          {auth.loggedIn() && (
+            <li className="mx-2 btn links">
+              <Link
+                to={"/add-pet"}
+                onClick={() => handlePageChange("AddPet")}
+                className={
+                  currentPage === "AddPet" ? "nav-link active" : "nav-link"
+                }
+              >
+                Add a pet
+              </Link>
+            </li>
+          )}{" "}
+          {auth.loggedIn() && (
+            <li className="mx-2 btn links">
+              <Link
+                to={"/my-likes"}
+                onClick={() => handlePageChange("MyLikes")}
+                className={
+                  currentPage === "MyLikes" ? "nav-link active" : "nav-link"
+                }
+              >
+                My Likes
+              </Link>
+            </li>
+          )}{" "}
+          <li className="mx-2 btn links">
             <Link
               to={"find-pet-pal"}
               onClick={() => handlePageChange("FindPetPal")}
@@ -71,6 +102,15 @@ function Navigation({ currentPage, handlePageChange }) {
             >
               Find pet pal
             </Link>
+            </li>
+            <li className="mx-2 btn links">
+            <Link
+          to={"/contact"}
+          onClick={() => handlePageChange("Contact")}
+          className={currentPage === "Contact" ? "nav-link active" : "nav-link"}
+        >
+          Contact
+        </Link>
           </li>
         </ul>
       </nav>

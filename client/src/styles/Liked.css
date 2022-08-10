@@ -1,0 +1,10 @@
+.likedText{
+    background-color: rgb(242, 238, 233);
+    text-align:left;
+    padding-left: 15px;
+    padding-top: 15;
+    padding-bottom:15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size:20px;
+    margin: 0;
+}

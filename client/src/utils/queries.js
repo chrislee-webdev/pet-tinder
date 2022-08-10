@@ -15,12 +15,7 @@ export const ME = gql`
         age
         breed
         gender
-        coat
-        color
         temperment
-        funFact
-        disabilities
-        allergies
         likes
         likesMe
       }
@@ -33,12 +28,24 @@ export const PET = gql`
     pet(petId: $petId) {
       _id
       name
+      picture
+      age
+      breed
+      gender
+      coat
+      color
+      temperment
+      funFact
+      disabilities
+      allergies
+      likes
+      likesMe
     }
   }
 `;
 
 export const PETS = gql`
-  query getPets {
+  query Pets {
     pets {
       _id
       name
@@ -52,6 +59,8 @@ export const PETS = gql`
       funFact
       disabilities
       allergies
+      likes
+      likesMe
     }
   }
 `;
