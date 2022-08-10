@@ -57,6 +57,9 @@ function FindPetPal() {
                         src={require("../../assets/dalmatian.jpeg")}
                         alt="dalmatian"
                     />
+                    <p>Name: Rose (just a test)</p>
+                    <p>Age: 2 years</p>
+                    <p>Gender: Female</p>
                 </div>
                 <div>
                     <img
