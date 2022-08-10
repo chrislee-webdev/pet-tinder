@@ -1,0 +1,101 @@
+.login {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    position: relative;
+    left: 45%;
+}
+
+.loginContainer {
+  position: relative;
+  align-items: center; 
+  width:100%;
+  padding:100px;
+  margin: 5px;
+  background-color: rgb(242, 238, 233);
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.loginContainer div {
+    display: flex;
+    justify-content: center;
+}
+
+.input input {
+    width: 200px;
+    border: solid 2px black;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 7px;
+}
+
+.signUp {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold; 
+    position: relative;
+    left: 45%;
+}
+
+.signUpContainer {
+    width:100%;
+    padding:100px;
+    background-color: rgb(242, 238, 233);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+}
+
+.signUpContainer div {
+    display: flex;
+    justify-content: center;
+}
+
+.submitBtn {
+    width: 15%;
+    border-radius: 25%;
+    background-color: black;
+    color: white;
+    margin-right:5%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    position: absolute;
+    left: 42%;
+    bottom: 15%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.submitBtn:hover {
+    background-color:#f0d19a;
+    color:black;
+    text-decoration: underline;
+}
+
+.submitBtn2 {
+    width: 15%;
+    border-radius: 25%;
+    background-color: black;
+    color: white;
+    margin-right:5%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    position: absolute;
+    left: 42%;
+    bottom: 20%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.submitBtn2:hover {
+    background-color:#f0d19a;
+    color:black;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 90%;
+      font-size: 16px;
+    }
+  
+    input[type="submit"] {
+      width: 100%;
+    }
+  }
