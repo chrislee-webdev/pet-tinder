@@ -34,33 +34,33 @@ function FindPetPal() {
 
   console.log(pets);
 
-  const swipe = (direction, nameToDelete) => {
-    console.log("removing: " + nameToDelete);
-    setLastDirection(direction);
-  };
+  // const swipe = (direction, nameToDelete) => {
+  //   console.log("removing: " + nameToDelete);
+  //   setLastDirection(direction);
+  // };
 
-  const outOfFrame = (name) => {
-    console.log(name + "left the screen!");
-  };
+  // const outOfFrame = (name) => {
+  //   console.log(name + "left the screen!");
+  // };
 
   return (
     <section className='findPetContainer'>
     <h1 className='findText'>Find a pal for your pet!</h1>
 
-    <div>
-      <ul>
+    <div className="petProfile">
+    <img className='pupImg'src={require('../../assets/pals.jpeg')}
+        alt="puppies"
+    />
+    <ul>
         <li>Name: Bowie</li>
         <li>Age: 3 years</li>
         <li>Breed: Golden Retriever</li>
         <li>Temperament: Happy</li>
       </ul>
-    <img className='pupImg'src={require('../../assets/pals.jpeg')}
-        alt="puppies"
-    />
     <button>Like</button> <button>Pass</button>
     </div>
 
-    <div>
+    <div className="petProfile">
     <button>Like</button> <button>Pass</button>
     <img className='pupImg'src={require('../../assets/dalmatian.jpeg')}
     alt="dalmatian"
@@ -73,20 +73,20 @@ function FindPetPal() {
     </ul>
     </div>
 
-    <div>
+    <div className="petProfile">
+    <img className='pupImg' src={require('../../assets/frenchie.jpg')}
+    alt="frenchie"
+    />
     <ul>
       <li>Name: Spudz McKenzie</li>
       <li>Age: 3 years</li>
       <li>Breed: French Bulldog</li>
       <li>Temperament: Stubborn</li>
     </ul>
-    <img className='pupImg' src={require('../../assets/frenchie.jpg')}
-    alt="frenchie"
-    />
     <button>Like</button> <button>Pass</button>
     </div>
 
-    <div>
+    <div className="petProfile">
     <img className='pupImg' src={require('../../assets/shiba-inu.jpeg')}
     alt="frenchie"
     />
@@ -100,12 +100,12 @@ function FindPetPal() {
     </div>
 
       {/* <img src={require("../../assets/pals.jpeg")} alt="puppies" /> */}
-      <div className="cardContainer"></div>
+      {/* <div className="cardContainer"></div>
       {lastDirection ? (
         <h2 className="infoText">You swiped {lastDirection}</h2>
       ) : (
         <h2 className="infoText" />
-      )}
+      )} */}
     </section>
   );
 
