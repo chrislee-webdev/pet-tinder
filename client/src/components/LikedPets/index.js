@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useQuery, useLazyQuery, useMutation } from "@apollo/client";
 import { FIND_MATCH, ME, PET, PETS } from "../../utils/queries";
 import { LIKE_PET, UNLIKE_PET } from "../../utils/mutations";
-import '../../styles/Liked.css';
+import "../../styles/Liked.css";
 
 //map pets to each user
 //pets you like = matched
@@ -92,9 +92,9 @@ export function LikedPets() {
   };
 
   return (
-    <section>
-      <div>
-        <h2 className='likedText'>Matches</h2>
+    <section id="page-container">
+      <div className="container">
+        <h2 className="likedText">Matches</h2>
         {me.pets.map((yourPet) => (
           <ol>
             {likesMe
@@ -115,8 +115,9 @@ export function LikedPets() {
         ))}
       </div>
 
-      <div>
-        <h2 className='likedText'>Click your pet to see who you've liked</h2>
+      <h2 className="likedText">Click your pet to see who you've liked</h2>
+
+      <div className="container">
         {me.pets.map((yourPet) => (
           <ol key={yourPet._id}>
             <h3
@@ -162,12 +163,12 @@ export function LikedPets() {
       </div>
 
       {likesMe.length === 0 ? (
-        <h2 className='likedText'>No Likes Yet</h2>
+        <h2 className="likedText">No Likes Yet</h2>
       ) : (
-        <div>
+        <div className="profile-info-container">
           {me.pets.map((yourPet) => (
             <>
-              <h3 className='likedText' key={yourPet._id + "title"}>
+              <h3 className="likedText" key={yourPet._id + "title"}>
                 {yourPet.name} was liked by...
               </h3>
               {likesMe?.map((theirPet) => (

@@ -45,74 +45,75 @@ function FindPetPal() {
   return (
     <section className="findPetContainer">
       <h1 className="findText">Find a pal for your pet!</h1>
+      <div className="petContainer">
+        <div className="petProfile">
+          <img
+            className="pupImg"
+            src={require("../../assets/pals.jpeg")}
+            alt="puppies"
+          />
+          <ul>
+            <li>Name: Bowie</li>
+            <li>Age: 3 years</li>
+            <li>Breed: Golden Retriever</li>
+            <li>Temperament: Happy</li>
+            <button>Like</button> <button>Pass</button>
+          </ul>
+        </div>
 
-      <div className="petProfile">
-        <img
-          className="pupImg"
-          src={require("../../assets/pals.jpeg")}
-          alt="puppies"
-        />
-        <ul>
-          <li>Name: Bowie</li>
-          <li>Age: 3 years</li>
-          <li>Breed: Golden Retriever</li>
-          <li>Temperament: Happy</li>
-        </ul>
-        <button>Like</button> <button>Pass</button>
-      </div>
+        <div className="petProfile">
+          <img
+            className="pupImg"
+            src={require("../../assets/dalmatian.jpeg")}
+            alt="dalmatian"
+          />
+          <ul>
+            <li>Name: Dottie</li>
+            <li>Age: 2 years</li>
+            <li>Breed: Dalmation</li>
+            <li>Temperament: Excellent family dog</li>
+            <button>Like</button> <button>Pass</button>
+          </ul>
+        </div>
 
-      <div className="petProfile">
-        <button>Like</button> <button>Pass</button>
-        <img
-          className="pupImg"
-          src={require("../../assets/dalmatian.jpeg")}
-          alt="dalmatian"
-        />
-        <ul>
-          <li>Name: Dottie</li>
-          <li>Age: 2 years</li>
-          <li>Breed: Dalmation</li>
-          <li>Temperament: Excellent family dog</li>
-        </ul>
-      </div>
+        <div className="petProfile">
+          <img
+            className="pupImg"
+            src={require("../../assets/frenchie.jpg")}
+            alt="frenchie"
+          />
+          <ul>
+            <li>Name: Spudz McKenzie</li>
+            <li>Age: 3 years</li>
+            <li>Breed: French Bulldog</li>
+            <li>Temperament: Stubborn</li>
+            <button>Like</button> <button>Pass</button>
+          </ul>
+        </div>
 
-      <div className="petProfile">
-        <img
-          className="pupImg"
-          src={require("../../assets/frenchie.jpg")}
-          alt="frenchie"
-        />
-        <ul>
-          <li>Name: Spudz McKenzie</li>
-          <li>Age: 3 years</li>
-          <li>Breed: French Bulldog</li>
-          <li>Temperament: Stubborn</li>
-        </ul>
-        <button>Like</button> <button>Pass</button>
-      </div>
+        <div className="petProfile">
+          <img
+            className="pupImg"
+            src={require("../../assets/shiba-inu.jpeg")}
+            alt="frenchie"
+          />
+          <ul>
+            <li>Name: Mochi</li>
+            <li>Age: 3 years</li>
+            <li>Breed: Shiba Inu</li>
+            <li>Temperament: Stubborn</li>
+            <button>Like</button> <button>Pass</button>
+          </ul>
+        </div>
 
-      <div className="petProfile">
-        <img
-          className="pupImg"
-          src={require("../../assets/shiba-inu.jpeg")}
-          alt="frenchie"
-        />
-        <ul>
-          <li>Name: Mochi</li>
-          <li>Age: 3 years</li>
-          <li>Breed: Shiba Inu</li>
-          <li>Temperament: Stubborn</li>
-        </ul>
-        <button>Like</button> <button>Pass</button>
-      </div>
-
-      {/* <img src={require("../../assets/pals.jpeg")} alt="puppies" /> */}
-      {/* <div className="cardContainer"></div>
+        {/* <img src={require("../../assets/pals.jpeg")} alt="puppies" /> */}
+        {/* <div className="cardContainer"></div>
       {lastDirection ? (
         <h2 className="infoText">You swiped {lastDirection}</h2>
       ) : (
         <h2 className="infoText" />
       )} */}
+      </div>
     </section>
   );
 }
