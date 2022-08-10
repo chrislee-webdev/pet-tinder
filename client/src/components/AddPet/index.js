@@ -66,7 +66,6 @@ const AddPet = () => {
     allergies: "",
     disabilities: "",
     funFact: "",
-
   });
 
   const [addPet, { error }] = useMutation(ADD_PET);
@@ -147,7 +146,7 @@ const AddPet = () => {
     <section className="addPetContainer">
       <h1>Create a pet profile</h1>
       <form onSubmit={handleFormSubmit}>
-       <div className="input">
+        <div className="input">
           Pet Name:{" "}
           <input
             type={"text"}
@@ -156,7 +155,7 @@ const AddPet = () => {
               setAddPetData({ ...addPetData, [e.target.name]: e.target.value })
             }
           />
-        </div >
+        </div>
         <div className="input" value={addPetData.picture}>
           <input type={"file"} name={"petPic"} onChange={picChangeHandler} />
           <input
@@ -193,7 +192,7 @@ const AddPet = () => {
           />
         </div>
 
-        <div className="input" >
+        <div className="input">
           Coat:{" "}
           <Select
             options={coat}
