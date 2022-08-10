@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useQuery, useLazyQuery, useMutation } from "@apollo/client";
 import { FIND_MATCH, ME, PET, PETS } from "../../utils/queries";
 import { LIKE_PET, UNLIKE_PET } from "../../utils/mutations";
+import '../../styles/Liked.css';
 
 //map pets to each user
 //pets you like = matched

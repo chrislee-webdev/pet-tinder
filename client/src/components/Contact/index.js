@@ -29,9 +29,9 @@ function Contact() {
   }
 
   return (
-    <div className="form_container">
+    <div className="contact-us-form_container">
       <h1>We’d Love to Hear from You </h1>
-      <form className="contact-form" onSubmit={sendEmail}>
+      <form className="contact-us-contact-form" onSubmit={sendEmail}>
         <input type="hidden" name="contact_number" />
         <label>
           Hi <Emoji symbol="👋" label="love" /> What's your name?
