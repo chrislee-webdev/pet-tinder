@@ -123,7 +123,6 @@ const AddPet = () => {
       const { data } = await addPet({
         variables: { input: { ...addPetData } },
       });
-      Auth.login(data.addPet.token);
     } catch (e) {
       console.error(e);
     }
