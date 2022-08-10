@@ -1,7 +1,6 @@
-# Pet Tinder
+# Pet Pals
 # Description
-Pinder is a website designed for dog parents looking/wanting to breed their dogs. 
-On the website you can login, add a pet, find other pets, and view your matches. 
+Pet Pal is a full-stack web application that allows pet parents to find new pals for their pets to play with. Joining is free, and all you have to do is create your own profile and set up your username and password. Once users have created their account, they can add their animal and start searching for new pet pals for your pet pal
 
 # Table of Contents
 * [Description](#Description)
@@ -20,15 +19,18 @@ On the website you can login, add a pet, find other pets, and view your matches.
 
 # Technologies
 - React
-- MongoDB
+- MongoDB/Mongoose
 - CSS
+- Bootstrap
 - Javascript
 - GraphQL-Apollo
 - Jwt
 - NodeJS
 - Express
 
-# Preview
+## Preview
+
+![image](./public/src/assets/PetTinder.png)
 
 # Links
 
