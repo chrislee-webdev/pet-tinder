@@ -12,21 +12,21 @@
 // export default Footer
 
 import React from "react";
-import { FiMail } from "react-icons/fi";
-import {
-  FaFacebookSquare,
-  FaLinkedin,
-  FaGithub,
-  FaTwitter,
-  FaInstagram,
-} from "react-icons/fa";
+// import { FiMail } from "react-icons/fi";
+// import {
+//   FaFacebookSquare,
+//   FaLinkedin,
+//   FaGithub,
+//   FaTwitter,
+//   FaInstagram,
+// } from "react-icons/fa";
 import "../../styles/Footer.css";
 
 function Footer() {
   return (
     <div className="footer-div">
       <footer>
-        <ul id="contacts" class="social-media-icons">
+        {/* <ul id="contacts" class="social-media-icons">
           <li>
             <a
               href="mailto:emandaabyou@gmail.com?subject=Mail from Our Site"
@@ -93,7 +93,7 @@ function Footer() {
               </li>
             </a>
           </li>
-        </ul>
+        </ul> */}
 
         <div class="copyright">
           <a
@@ -101,7 +101,7 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <section>&copy; Pet Tinder 2022</section>
+            <section>&copy; Pet Pals 2022</section>
           </a>
         </div>
       </footer>
